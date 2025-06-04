@@ -1,0 +1,13 @@
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/tkinter/__init__.py", line 1705, in __call__
+    return self.func(*args)
+  File "scan.py", line 68, in button_press
+    vals = process_image()
+  File "scan.py", line 164, in process_image
+    os.makedirs(date_folder)
+  File "/usr/lib64/python3.6/os.py", line 210, in makedirs
+    makedirs(head, mode, exist_ok)
+  File "/usr/lib64/python3.6/os.py", line 220, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '1980'

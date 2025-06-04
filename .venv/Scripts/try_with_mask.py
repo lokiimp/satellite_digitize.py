@@ -8,7 +8,7 @@ import os
 # ───────────────────────────────────────────────────────────────────────────────
 
 INPUT_FOLDER    = "input_frames/"          # Folder of raw satellite PNGs
-GRID_PATH       = "images/mask1px.png"  # Transparent grid RGBA
+GRID_PATH       = "images/mask1px4.png"  # Transparent grid RGBA
 BRIGHT_THRESH   = 180                      # Threshold to isolate grid pixels
 MAX_ANGLE       = 4                        # ± degrees to search for rotation
 ANGLE_STEP      = 0.1                      # Step size in degrees
@@ -17,10 +17,10 @@ INPAINT_RADIUS  = 6                        # (Unused—now using recursive fill)
 RECENTER_DISK   = False                    # Whether to recenter Earth disk
 SAVE_DEBUG      = True                     # Whether to save intermediate debug images
 SAVE_DEBUG_FULL = False                    # save rotation images
-thickness = 2                              # How much to dialte mask
+thickness = 1                              # How much to dialte mask
 
-OUTPUT_FOLDER   = "output_frames2/"
-DEBUG_FOLDER    = "debug2/"
+OUTPUT_FOLDER   = f"1px{thickness}{INPAINT_RADIUS}/output_frames/"
+DEBUG_FOLDER    = f"1px{thickness}{INPAINT_RADIUS}/debug/"
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 if SAVE_DEBUG:
     os.makedirs(DEBUG_FOLDER, exist_ok=True)

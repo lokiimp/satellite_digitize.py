@@ -12,8 +12,8 @@ from PIL import Image
 # ───────────────────────────────────────────────────────────────────────────────
 
 # Folders and paths
-YEAR           = 1976
-START_DAY      = 183
+YEAR           = 1977
+START_DAY      = 1
 mask_filename = "mask1px4.png"
 INPUT_BASE     = "/ships22/sds/goes/digitized/"  # base directory for satellite data
 OUTPUT_ROOT    = os.path.join(INPUT_BASE, f"32A/vissr/{year}/grid_aligned/aligned_output1px_vi/")   # root for all outputs

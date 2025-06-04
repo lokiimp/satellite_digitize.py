@@ -10,19 +10,19 @@ from skimage.restoration import inpaint_biharmonic
 
 
 INPUT_FOLDER    = "input_frames/"             # Folder of raw satellite PNGs
-GRID_PATH       = "images/mask1px3.png"        # Transparent grid RGBA
+GRID_PATH       = "images/mask1px4.png"        # Transparent grid RGBA
 BRIGHT_THRESH   = 180                         # Threshold to isolate grid pixels
 MAX_ANGLE       = 4                           # ± degrees to search for rotation
 ANGLE_STEP      = 0.1                         # Step size in degrees
 MAX_SHIFT       = 200                         # ± pixels to allow for translation
-INPAINT_RADIUS  = 3                           # Radius for Telea/NS inpainting
+INPAINT_RADIUS  = 8                           # Radius for Telea/NS inpainting
 RECENTER_DISK   = False                       # Whether to recenter Earth disk
 SAVE_DEBUG      = True                       # Whether to save intermediate debug images
 SAVE_FULL_DEBUG = False                       # Save every θ‐rotated mask image
-THICKEN_PIXELS  = 2                           # How much to dilate the mask for inpainting
+THICKEN_PIXELS  = 1                           # How much to dilate the mask for inpainting
 
-OUTPUT_FOLDER   = "output_frames2.1/"
-DEBUG_FOLDER    = "debug2.1/"
+OUTPUT_FOLDER   = f"1pxheal{THICKEN_PIXELS}{INPAINT_RADIUS}/output_frames/"
+DEBUG_FOLDER    = f"1pxheal{THICKEN_PIXELS}{INPAINT_RADIUS}/debug2.2/"
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 if SAVE_DEBUG:
     os.makedirs(DEBUG_FOLDER, exist_ok=True)
@@ -181,13 +181,19 @@ def inpaint_biharmonic_color(image_bgr, mask):
 
 def inpaint_shiftmap(image_bgr, mask):
     """
-    Exemplar-based inpainting via OpenCV-contrib’s xphoto ShiftMap.
-    Requires `opencv-contrib-python`.
+    Exemplar‐based inpainting via OpenCV‐contrib’s xphoto ShiftMap.
     Signature: cv2.xphoto.inpaint(src, mask, dst, flags)
+    Returns None if ShiftMap is unavailable or fails.
     """
-    # Prepare a dst array of the same shape & type as image_bgr
-    dst = np.zeros_like(image_bgr)
-    return cv2.xphoto.inpaint(image_bgr, mask, dst, cv2.xphoto.INPAINT_SHIFTMAP)
+    try:
+        dst = np.zeros_like(image_bgr)
+        result = cv2.xphoto.inpaint(image_bgr, mask, dst, cv2.xphoto.INPAINT_SHIFTMAP)
+        # If result is all zeros (i.e. empty), treat as failure:
+        if result is None or result.size == 0:
+            return None
+        return result
+    except Exception:
+        return None
 # ───────────────────────────────────────────────────────────────────────────────
 #                 Main alignment + inpainting pipeline
 # ───────────────────────────────────────────────────────────────────────────────
@@ -269,11 +275,12 @@ def main():
         cv2.imwrite(os.path.join(img_out_folder, "inpaint_biharmonic.png"), biharm)
 
         # 5) ShiftMap inpainting (opencv‐contrib)
-        try:
-            shiftmap = inpaint_shiftmap(aligned_bgr, mask_for_inpaint)
+        # 5) ShiftMap inpainting (opencv‐contrib)
+        shiftmap = inpaint_shiftmap(aligned_bgr, mask_for_inpaint)
+        if shiftmap is not None:
             cv2.imwrite(os.path.join(img_out_folder, "inpaint_shiftmap.png"), shiftmap)
-        except AttributeError:
-            print("  – ShiftMap inpainting unavailable (opencv‐contrib not installed).")
+        else:
+            print("  – ShiftMap inpainting unavailable or failed for", frame_name)
 
         # (Optional) Save debug images
         if SAVE_DEBUG:

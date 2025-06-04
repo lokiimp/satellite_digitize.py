@@ -12,9 +12,12 @@ from PIL import Image
 # ───────────────────────────────────────────────────────────────────────────────
 
 # Folders and paths
+YEAR           = 1976
+START_DAY      = 183
+mask_filename = "mask1px4.png"
 INPUT_BASE     = "/ships22/sds/goes/digitized/"  # base directory for satellite data
-OUTPUT_ROOT    = os.path.join(INPUT_BASE, "32A/vissr/1976/aligned_output/")   # root for all outputs
-GRID_PATH      = os.path.join(INPUT_BASE, "maskfinalish.png") # transparent‐RGBA grid mask
+OUTPUT_ROOT    = os.path.join(INPUT_BASE, f"32A/vissr/{year}/grid_aligned/aligned_output1px_ir/")   # root for all outputs
+GRID_PATH      = os.path.join(INPUT_BASE, f"masks/{mask_filename}") # transparent‐RGBA grid mask
 
 # Alignment parameters
 BRIGHT_THRESH  = 180     # threshold to isolate grid pixels
@@ -30,9 +33,7 @@ GREEN          = np.array((0, 255, 0), dtype=np.uint8)
 USE_REMBG      = True    # remove background before alignment
 REMBG_SESSION  = new_session("unet")
 
-# Dates & Sat info
-YEAR           = 1976
-START_DAY      = 183
+#Sat info
 MAIN_SAT       = "32A"   # primary satellite code
 ALT_SAT        = "22A"   # alternate if primary folder missing
 

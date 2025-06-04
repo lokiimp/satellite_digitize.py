@@ -12,11 +12,11 @@ from PIL import Image
 # ───────────────────────────────────────────────────────────────────────────────
 
 # Folders and paths
-YEAR           = 1976
-START_DAY      = 183
+YEAR           = 1977
+START_DAY      = 1
 mask_filename = "mask1px4.png"
 INPUT_BASE     = "/ships22/sds/goes/digitized/"  # base directory for satellite data
-OUTPUT_ROOT    = os.path.join(INPUT_BASE, f"32A/vissr/{year}/grid_aligned/aligned_output1px_vi/")   # root for all outputs
+OUTPUT_ROOT    = os.path.join(INPUT_BASE, f"32A/vissr/{year}/grid_aligned/aligned_output1px_ir/")   # root for all outputs
 GRID_PATH      = os.path.join(INPUT_BASE, f"masks/{mask_filename}") # transparent‐RGBA grid mask
 
 # Alignment parameters
@@ -26,14 +26,14 @@ ANGLE_STEP     = 0.1     # θ step in degrees
 MAX_SHIFT      = 200     # ± pixels to allow translation
 
 # Green‐fill parameters
-THICKEN_PIXELS = 3       # dilate grid mask by this thickness
+THICKEN_PIXELS = 4       # dilate grid mask by this thickness
 GREEN          = np.array((0, 255, 0), dtype=np.uint8)
 
 # Background removal
 USE_REMBG      = True    # remove background before alignment
 REMBG_SESSION  = new_session("unet")
 
-# Dates & Sat info
+#Sat info
 MAIN_SAT       = "32A"   # primary satellite code
 ALT_SAT        = "22A"   # alternate if primary folder missing
 
@@ -231,10 +231,10 @@ for doy in range(START_DAY, (366 if YEAR % 4 == 0 else 365) + 1):
             continue
 
     for fname in sorted(os.listdir(main_dir)):
-        if not fname.lower().endswith(".vi.med.png"):
+        if not fname.lower().endswith(".ir.med.png"):
             continue
-        basefn = fname.replace(".vi.med.png", "")
-        json_path = os.path.join(main_dir, basefn + ".vi.json")
+        basefn = fname.replace(".ir.med.png", "")
+        json_path = os.path.join(main_dir, basefn + ".ir.json")
         img_path  = os.path.join(main_dir, fname)
         if not os.path.isfile(json_path): continue
 

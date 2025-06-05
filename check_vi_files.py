@@ -31,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "directory",
         nargs="?",
-        default="/ships22/sds/goes/digitized/32A/1977",
+        default="/ships22/sds/goes/digitized/32A/vissr/1977",
         help="Base directory containing date folders",
     )
     args = parser.parse_args()

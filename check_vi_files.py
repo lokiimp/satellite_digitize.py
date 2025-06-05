@@ -3,13 +3,20 @@ import argparse
 
 
 def find_vi_files(base_dir: Path):
-    for path in base_dir.rglob("*.vi.json"):
-        if path.is_file():
-            yield path
+    """Yield *.vi.json files from date subdirectories in sorted order."""
+    for date_dir in sorted(base_dir.iterdir()):
+        if not date_dir.is_dir():
+            continue
+        # search within this date directory recursively
+        for path in sorted(date_dir.rglob("*.vi.json")):
+            if path.is_file():
+                yield path
 
 
-def contains_target_strings(text: str):
-    return "5N" in text or "SN" in text
+def contains_target_strings(text: str) -> bool:
+    """Return True if text contains the target strings."""
+    lower = text.lower()
+    return "5n" in lower or "sn" in lower
 
 
 def main(directory: str):
@@ -31,7 +38,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "directory",
         nargs="?",
-        default="/ships22/sds/goes/digitized/32A/1977",
+        default="/ships22/sds/goes/digitized/32A/vissr/1977",
         help="Base directory containing date folders",
     )
     args = parser.parse_args()

@@ -6,8 +6,8 @@ from datetime import date, timedelta
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
-YEAR = 1976
-START_DAY = 183
+YEAR = 1977
+START_DAY = 1
 MAIN_SAT = "32A"
 ALT_SAT = "22A"
 
@@ -19,9 +19,9 @@ BASE_DEBUG = os.path.join(
 
 # Grid masks for different subpoints
 GRID_MASK_FILES = {
-    "5N": os.path.join(DIR, "masks/mask1px4.5N.png"),
-    "0N": os.path.join(DIR, "masks/mask1px4.0N.png"),
-    "5S": os.path.join(DIR, "masks/mask1px4.5S.png"),
+    "5N": os.path.join(DIR, "masks/mask.5N.png"),
+    "0N": os.path.join(DIR, "masks/mask.0N.png"),
+    "5S": os.path.join(DIR, "masks/mask.5S.png"),
 }
 
 INPAINT_RADIUS = 7
@@ -29,10 +29,10 @@ DILATE_PIXELS = 5
 
 OUTPUT_ROOT = os.path.join(
     DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output1px_vi"
+    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi"
 )
-VIDEO_PATH = os.path.join(OUTPUT_ROOT, "vid_nobg_telea_auto.mp4")
-FOLDER_TELEA = os.path.join(OUTPUT_ROOT, "telea_inpainted_auto")
+VIDEO_PATH = os.path.join(OUTPUT_ROOT, f"{YEAR}_nobg_telea_{INPAINT_RADIUS}_{DILATE_PIXELS}.mp4")
+FOLDER_TELEA = os.path.join(OUTPUT_ROOT, f"telea_inpainted")
 
 FRAME_SIZE = (2000, 2000)
 FPS = 10

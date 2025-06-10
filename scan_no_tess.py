@@ -2,8 +2,6 @@ import tkinter as tk
 import shutil
 import os
 from datetime import datetime, timedelta
-from PIL import Image
-import threading
 import subprocess
 import re
 import json
@@ -261,12 +259,12 @@ def check_against_ocr(file, satellite_text, date_text, time_text):
 
     if time_index == -1:
         time_text = open_problem_window(time_text, ' '.join(vals) + " DON'T ACCEPT OCR")
-        if date_text not in vals:
+        if date_text not in vals and (date_text[:2] + "0" + date_text[3:]) not in vals and (date_text[:2] + "00" + date_text[4:]) not in vals:
             date_text = open_problem_window(date_text, ' '.join(vals) + " DON'T ACCEPT OCR")
         if satellite_text not in vals:
             satellite_text = open_problem_window(satellite_text, ' '.join(vals) + " DON'T ACCEPT OCR")
     else:
-        if date_text not in vals:
+        if date_text not in vals and (date_text[:2] + "0" + date_text[3:]) not in vals and (date_text[:2] + "00" + date_text[4:]) not in vals:
             date_text = open_problem_window(date_text, vals[time_index + 1])
         if satellite_text not in vals:
             satellite_text = open_problem_window(satellite_text, vals[time_index + 2])
@@ -279,18 +277,20 @@ def get_first_line_text(analyze_result):
         blocks = analyze_result["readResult"]["blocks"]
         first_block = blocks[0]
         first_line = first_block["lines"][0]
+        if first_line["text"] is None: return 'null'
         return first_line["text"]
     except (KeyError, IndexError):
-        return None
+        return 'null'
 
 def get_second_line_text(analyze_result):
     try:
         blocks = analyze_result["readResult"]["blocks"]
         first_block = blocks[0]
         first_line = first_block["lines"][1]
+        if first_line["text"] is None: return 'null'
         return first_line["text"]
     except (KeyError, IndexError):
-        return None
+        return 'null'
 
 def open_problem_window(user_text, ocr_text):
     problem_window = tk.Toplevel(root)
@@ -364,7 +364,7 @@ def close_all_toplevels(root):
 
 
 
-# Submit Buttont
+# Submit Button
 submit_button = tk.Button(root, text="Submit", command=button_press)
 submit_button.pack(pady=10)
 

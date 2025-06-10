@@ -3,26 +3,28 @@ import cv2
 import glob
 import numpy as np
 from skimage.restoration import inpaint_biharmonic
+from pyinpaint import Inpaint
+
 
 # ───────────────────────────────────────────────────────────────────────────────
 #                          U S E R   CONFIGURATION
 # ───────────────────────────────────────────────────────────────────────────────
 
 
-INPUT_FOLDER    = "input_frames/"             # Folder of raw satellite PNGs
-GRID_PATH       = "images/mask1px4.png"        # Transparent grid RGBA
+INPUT_FOLDER    = ".5N/"             # Folder of raw satellite PNGs
+GRID_PATH       = "images/grid.5N.png"        # Transparent grid RGBA
 BRIGHT_THRESH   = 180                         # Threshold to isolate grid pixels
 MAX_ANGLE       = 4                           # ± degrees to search for rotation
 ANGLE_STEP      = 0.1                         # Step size in degrees
 MAX_SHIFT       = 200                         # ± pixels to allow for translation
-INPAINT_RADIUS  = 8                           # Radius for Telea/NS inpainting
+INPAINT_RADIUS  = 7                           # Radius for Telea/NS inpainting
 RECENTER_DISK   = False                       # Whether to recenter Earth disk
 SAVE_DEBUG      = True                       # Whether to save intermediate debug images
 SAVE_FULL_DEBUG = False                       # Save every θ‐rotated mask image
-THICKEN_PIXELS  = 1                           # How much to dilate the mask for inpainting
+THICKEN_PIXELS  = 5                           # How much to dilate the mask for inpainting
 
-OUTPUT_FOLDER   = f"1pxheal{THICKEN_PIXELS}{INPAINT_RADIUS}/output_frames/"
-DEBUG_FOLDER    = f"1pxheal{THICKEN_PIXELS}{INPAINT_RADIUS}/debug2.2/"
+OUTPUT_FOLDER   = f"1pxheal.5N{THICKEN_PIXELS}{INPAINT_RADIUS}/output_frames/"
+DEBUG_FOLDER    = f"1pxheal.5N{THICKEN_PIXELS}{INPAINT_RADIUS}/debug2.2/"
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 if SAVE_DEBUG:
     os.makedirs(DEBUG_FOLDER, exist_ok=True)
@@ -152,6 +154,7 @@ def match_grid_to_satellite(sat_thresh_full, grid_mask, frame_name):
 # ───────────────────────────────────────────────────────────────────────────────
 #                       Inpainting Methods (1–4)
 # ───────────────────────────────────────────────────────────────────────────────
+from pyinpaint import Inpaint
 
 def inpaint_telea(image_bgr, mask):
     """OpenCV Telea inpainting."""
@@ -194,6 +197,10 @@ def inpaint_shiftmap(image_bgr, mask):
         return result
     except Exception:
         return None
+
+def inpaint_pyinpaint(image_bgr, mask):
+    inpainted_image = Inpaint(image_bgr, mask)
+    return inpainted_image()
 # ───────────────────────────────────────────────────────────────────────────────
 #                 Main alignment + inpainting pipeline
 # ───────────────────────────────────────────────────────────────────────────────

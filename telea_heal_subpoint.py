@@ -144,14 +144,34 @@ def remove_background(img_bgr):
     return np.array(rem)
 
 def read_subpoint(json_path):
+    """
+    Scans the file at json_path for any of the defined tokens and returns:
+      - "5N" if it contains "SN" or "5N"
+      - "0N" if it contains "ON" or "0N"
+      - "5S" if it contains "SS", "5S", "58", "38", or "88"
+    Returns None if none of the tokens are found.
+    """
     try:
-        text = open(json_path, 'r', errors='ignore').read().upper()
+        with open(json_path, 'r', errors='ignore') as f:
+            text = f.read().upper()
     except Exception:
         return None
-    for key in ("5N", "0N", "5S"):
-        if key in text:
-            return key
+
+    # mapping of return-value → list of tokens to search for
+    mapping = {
+        "5N": ["SN", "5N"],
+        "0N": ["ON", "0N"],
+        "5S": ["SS", "5S", "58", "38", "88"],
+    }
+
+    # check in order: 5N, then 0N, then 5S
+    for result, tokens in mapping.items():
+        for tok in tokens:
+            if tok in text:
+                return result
+
     return None
+
 
 def doy_folder(year, doy):
     return (date(year, 1, 1) + timedelta(days=doy-1)).strftime("%Y_%m_%d") + f"_{doy:03d}"
@@ -203,6 +223,7 @@ for doy in range(START_DAY, last_doy + 1):
 
         sub = read_subpoint(json_path)
         if sub is None:
+            print(f"ERROR AT {fname}, NO SUBPOINT FOUND")
             scores = {k: alignment_score(sat_bgr, m) for k, m in GRID_MASKS.items()}
             sub = max(scores, key=scores.get)
         grid_mask = GRID_MASKS[sub]
@@ -257,7 +278,7 @@ for doy in range(START_DAY, last_doy + 1):
             cv2.imwrite(os.path.join(dbg_dir, "mask.png"), telea_mask)
 
         print(
-            f"Processed {basefn}: θ={theta:.2f}, dx={dx:.2f}, dy={dy:.2f}, score={int(score)}"
+            f"Processed {basefn}: θ={theta:.2f}, dx={dx:.2f}, dy={dy:.2f}, score={int(score)}, sub={sub}"
         )
 
 vid_with_grid.release()

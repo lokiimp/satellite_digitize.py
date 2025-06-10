@@ -3,6 +3,8 @@ import re
 import cv2
 import numpy as np
 from datetime import date, timedelta
+from rembg import remove, new_session
+from PIL import Image
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
@@ -10,12 +12,6 @@ YEAR = 1977
 START_DAY = 1
 MAIN_SAT = "32A"
 ALT_SAT = "22A"
-
-# Base debug directory
-BASE_DEBUG = os.path.join(
-    DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output1px_vi/debug"
-)
 
 # Grid masks for different subpoints
 GRID_MASK_FILES = {
@@ -31,19 +27,37 @@ OUTPUT_ROOT = os.path.join(
     DIR,
     f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi"
 )
-VIDEO_PATH = os.path.join(OUTPUT_ROOT, f"{YEAR}_nobg_telea_{INPAINT_RADIUS}_{DILATE_PIXELS}.mp4")
-FOLDER_TELEA = os.path.join(OUTPUT_ROOT, f"telea_inpainted")
+OS_FOLDERS = {
+    "video_no_bg_with_grid": os.path.join(OUTPUT_ROOT, "vid_nobg_with_grid.mp4"),
+    "video_no_bg_inpainted": os.path.join(
+        OUTPUT_ROOT,
+        f"vid_nobg_telea_r{INPAINT_RADIUS}_d{DILATE_PIXELS}.mp4",
+    ),
+    "folder_aligned_with_grid": os.path.join(OUTPUT_ROOT, "aligned_with_grid"),
+    "folder_aligned_green": os.path.join(OUTPUT_ROOT, "aligned_green_grid"),
+    "folder_aligned_no_grid": os.path.join(OUTPUT_ROOT, "aligned_no_grid"),
+    "folder_aligned_no_grid_bg": os.path.join(
+        OUTPUT_ROOT, "aligned_no_grid_nobg"
+    ),
+    "debug": os.path.join(OUTPUT_ROOT, "debug"),
+}
+
+FOLDER_TELEA = OS_FOLDERS["folder_aligned_no_grid"]
+DEBUG_ROOT = OS_FOLDERS["debug"]
+
+GREEN = np.array((0, 255, 0), dtype=np.uint8)
+USE_REMBG = True
+REMBG_SESSION = new_session("unet")
 
 FRAME_SIZE = (2000, 2000)
 FPS = 10
 FOURCC = cv2.VideoWriter_fourcc(*"mp4v")
+SAVE_DEBUG = True
 
 BRIGHT_THRESH = 180
 MAX_ANGLE = 2.2
 ANGLE_STEP = 0.1
 MAX_SHIFT = 200
-
-os.makedirs(FOLDER_TELEA, exist_ok=True)
 
 # --- Helper functions ---
 
@@ -57,8 +71,7 @@ def load_mask(path):
     else:
         gray = cv2.cvtColor(rgba, cv2.COLOR_BGR2GRAY)
         _, mask = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
-    k = cv2.getStructuringElement(cv2.MORPH_RECT, (DILATE_PIXELS, DILATE_PIXELS))
-    return cv2.dilate(mask, k, iterations=1)
+    return mask
 
 def threshold_satellite(img_bgr, thresh, crop_top_frac=1/12):
     gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
@@ -102,6 +115,34 @@ def alignment_score(img_bgr, grid_mask):
             best = overlap
     return best
 
+def match_grid_to_satellite(sat_thresh, grid_mask, frame_name, y_off):
+    best_score = -1
+    best_params = (0.0, 0.0, 0.0)
+    sat_f = sat_thresh.astype(np.float32)
+    if SAVE_DEBUG:
+        dbg_dir = os.path.join(DEBUG_ROOT, frame_name)
+        os.makedirs(dbg_dir, exist_ok=True)
+        cv2.imwrite(os.path.join(dbg_dir, "sat_thresh_cropped.png"), sat_thresh)
+
+    for theta in np.arange(-MAX_ANGLE, MAX_ANGLE + 1e-5, ANGLE_STEP):
+        rot_mask = rotate_image(grid_mask, theta, interp=cv2.INTER_NEAREST)
+        crop_mask = rot_mask[y_off:, :]
+        dx, dy = phase_correlation_shift(crop_mask.astype(np.float32), sat_f)
+        dx, dy = clamp_shift(dx, dy, MAX_SHIFT)
+        aligned_mask = translate_image(rot_mask, dx, dy, interp=cv2.INTER_NEAREST)
+        aligned_crop = aligned_mask[y_off:, :]
+        overlap = cv2.countNonZero(cv2.bitwise_and(aligned_crop, sat_thresh))
+        if overlap > best_score:
+            best_score = overlap
+            best_params = (theta, dx, dy)
+
+    return (*best_params, best_score)
+
+def remove_background(img_bgr):
+    pil = Image.fromarray(cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB))
+    rem = remove(pil, session=REMBG_SESSION).convert("RGBA")
+    return np.array(rem)
+
 def read_subpoint(json_path):
     try:
         text = open(json_path, 'r', errors='ignore').read().upper()
@@ -118,72 +159,107 @@ def doy_folder(year, doy):
 # Preload masks
 GRID_MASKS = {k: load_mask(p) for k, p in GRID_MASK_FILES.items()}
 
-# Map DOY to debug folder
-doy_to_folder = {}
-for folder_name in os.listdir(BASE_DEBUG):
-    parts = folder_name.split(".")
-    if len(parts) < 3:
-        continue
-    sat, y, d = parts[0], parts[1], parts[2]
-    if sat not in (MAIN_SAT, ALT_SAT) or y != str(YEAR):
-        continue
-    try:
-        doy = int(d)
-    except ValueError:
-        continue
-    if doy < START_DAY:
-        continue
-    if doy not in doy_to_folder or (sat == MAIN_SAT and doy_to_folder[doy].startswith(ALT_SAT)):
-        doy_to_folder[doy] = folder_name
+# Video writers and output folders
+for k, p in OS_FOLDERS.items():
+    if k.startswith("folder"):
+        os.makedirs(p, exist_ok=True)
+    elif k == "debug" and SAVE_DEBUG:
+        os.makedirs(p, exist_ok=True)
 
+vid_with_grid = cv2.VideoWriter(
+    OS_FOLDERS["video_no_bg_with_grid"], FOURCC, FPS, FRAME_SIZE
+)
+vid_inpaint = cv2.VideoWriter(
+    OS_FOLDERS["video_no_bg_inpainted"], FOURCC, FPS, FRAME_SIZE
+)
+if not vid_with_grid.isOpened() or not vid_inpaint.isOpened():
+    raise RuntimeError("Failed to open video writers")
+
+# Determine last day in year
 last_doy = 366 if YEAR % 4 == 0 else 365
-video_out = cv2.VideoWriter(VIDEO_PATH, FOURCC, FPS, FRAME_SIZE)
-if not video_out.isOpened():
-    raise RuntimeError(f"Failed to open video writer at '{VIDEO_PATH}'")
 
 for doy in range(START_DAY, last_doy + 1):
-    if doy not in doy_to_folder:
-        continue
-    basefn = doy_to_folder[doy]
-    debug_dir = os.path.join(BASE_DEBUG, basefn)
-    aligned_path = os.path.join(debug_dir, "aligned_nobg_with_grid.png")
-    if not os.path.isfile(aligned_path):
-        continue
-
-    # Determine JSON path
-    sat, year_str, doy_str = basefn.split(".")[:3]
-    folder = doy_folder(int(year_str), int(doy_str))
-    json_path = os.path.join(DIR, sat, "vissr", year_str, folder, basefn + ".vi.json")
-    img_raw_path = os.path.join(DIR, sat, "vissr", year_str, folder, basefn + ".vi.med.png")
-
-    sub = read_subpoint(json_path)
-    if sub is None:
-        print(f"Subpoint not found in {json_path}; trying all masks...")
-        raw_bgr = cv2.imread(img_raw_path)
-        if raw_bgr is None:
-            print(f"  Missing raw image {img_raw_path}; skipping")
+    folder = doy_folder(YEAR, doy)
+    main_dir = os.path.join(DIR, MAIN_SAT, "vissr", str(YEAR), folder)
+    if not os.path.isdir(main_dir):
+        alt_dir = os.path.join(DIR, ALT_SAT, "vissr", str(YEAR), folder)
+        if os.path.isdir(alt_dir):
+            main_dir = alt_dir
+        else:
             continue
-        scores = {k: alignment_score(raw_bgr, m) for k, m in GRID_MASKS.items()}
-        sub = max(scores, key=scores.get)
-    mask = GRID_MASKS[sub]
 
-    img = cv2.imread(aligned_path)
-    if img is None:
-        print(f"Warning: could not load '{aligned_path}'")
-        continue
+    for fname in sorted(os.listdir(main_dir)):
+        if not fname.lower().endswith(".vi.med.png"):
+            continue
+        basefn = fname.replace(".vi.med.png", "")
+        json_path = os.path.join(main_dir, basefn + ".vi.json")
+        img_path = os.path.join(main_dir, fname)
+        if not os.path.isfile(json_path):
+            continue
 
-    h, w = img.shape[:2]
-    if (w, h) != FRAME_SIZE:
-        img = cv2.resize(img, FRAME_SIZE)
+        sat_bgr = cv2.imread(img_path)
+        if sat_bgr is None:
+            continue
 
-    result = cv2.inpaint(img, mask, INPAINT_RADIUS, flags=cv2.INPAINT_TELEA)
+        sub = read_subpoint(json_path)
+        if sub is None:
+            scores = {k: alignment_score(sat_bgr, m) for k, m in GRID_MASKS.items()}
+            sub = max(scores, key=scores.get)
+        grid_mask = GRID_MASKS[sub]
 
-    out_file = f"{basefn}.png"
-    out_path = os.path.join(FOLDER_TELEA, out_file)
-    cv2.imwrite(out_path, result)
-    video_out.write(result)
+        # Background removal
+        if USE_REMBG:
+            rgba = remove_background(sat_bgr)
+            sat_nobg = cv2.cvtColor(rgba, cv2.COLOR_RGBA2RGB)
+        else:
+            sat_nobg = sat_bgr.copy()
 
-    print(f"Processed {aligned_path} using mask {sub} → {out_path}")
+        # Align to grid
+        sat_thresh, y_off = threshold_satellite(sat_nobg, BRIGHT_THRESH, crop_top_frac=1 / 12)
+        theta, dx, dy, score = match_grid_to_satellite(sat_thresh, grid_mask, basefn, y_off)
 
-video_out.release()
-print(f"Done! Video saved to: {VIDEO_PATH}")
+        sat_trans_bgr = translate_image(sat_bgr, -dx, -dy)
+        aligned_bgr = rotate_image(sat_trans_bgr, -theta)
+        sat_trans_nobg = translate_image(sat_nobg, -dx, -dy)
+        aligned_nobg = rotate_image(sat_trans_nobg, -theta)
+
+        if aligned_bgr.shape[1::-1] != FRAME_SIZE:
+            aligned_bgr = cv2.resize(aligned_bgr, FRAME_SIZE)
+            aligned_nobg = cv2.resize(aligned_nobg, FRAME_SIZE)
+
+        out_with_grid = os.path.join(OS_FOLDERS["folder_aligned_with_grid"], basefn + ".png")
+        cv2.imwrite(out_with_grid, aligned_bgr)
+        vid_with_grid.write(aligned_nobg)
+
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (DILATE_PIXELS, DILATE_PIXELS))
+        thick_mask = cv2.dilate(grid_mask, kernel, iterations=1)
+        aligned_green = aligned_bgr.copy()
+        aligned_green[thick_mask > 0] = (0, 255, 0)
+        out_green = os.path.join(OS_FOLDERS["folder_aligned_green"], basefn + ".png")
+        cv2.imwrite(out_green, aligned_green)
+
+        telea_mask = thick_mask
+        filled = cv2.inpaint(aligned_bgr, telea_mask, INPAINT_RADIUS, flags=cv2.INPAINT_TELEA)
+        out_no_grid = os.path.join(OS_FOLDERS["folder_aligned_no_grid"], basefn + ".png")
+        cv2.imwrite(out_no_grid, filled)
+
+        filled_nobg = cv2.inpaint(aligned_nobg, telea_mask, INPAINT_RADIUS, flags=cv2.INPAINT_TELEA)
+        vid_inpaint.write(filled_nobg)
+        out_no_grid_nobg = os.path.join(OS_FOLDERS["folder_aligned_no_grid_bg"], basefn + ".png")
+        cv2.imwrite(out_no_grid_nobg, filled_nobg)
+
+        if SAVE_DEBUG:
+            dbg_dir = os.path.join(DEBUG_ROOT, basefn)
+            os.makedirs(dbg_dir, exist_ok=True)
+            cv2.imwrite(os.path.join(dbg_dir, "aligned_with_grid.png"), aligned_bgr)
+            cv2.imwrite(os.path.join(dbg_dir, "aligned_green.png"), aligned_green)
+            cv2.imwrite(os.path.join(dbg_dir, "telea.png"), filled)
+            cv2.imwrite(os.path.join(dbg_dir, "mask.png"), telea_mask)
+
+        print(
+            f"Processed {basefn}: θ={theta:.2f}, dx={dx:.2f}, dy={dy:.2f}, score={int(score)}"
+        )
+
+vid_with_grid.release()
+vid_inpaint.release()
+print("\nAll done. Outputs written to:", OUTPUT_ROOT)

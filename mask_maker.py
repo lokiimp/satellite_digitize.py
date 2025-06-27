@@ -2,12 +2,13 @@ import cv2
 import numpy as np
 
 # 1. Load the color image (unchanged)
-img = cv2.imread("images/comb.5S.png")
+name = "comb_0N75.5W"
+img = cv2.imread(f"images/{name}.png")
 if img is None:
     raise FileNotFoundError("Could not load 'images/comb2.png'")
 
 # 2. Build a mask of “white”-ish pixels (threshold = 170 here)
-lw = 160
+lw = 110
 lower = np.array([lw, lw, lw], dtype=np.uint8)
 upper = np.array([255, 255, 255], dtype=np.uint8)
 mask = cv2.inRange(img, lower, upper)
@@ -24,4 +25,4 @@ rgba_mask = np.zeros((h, w, 4), dtype=np.uint8)  # initialize all channels to 0
 rgba_mask[mask_dilated > 0] = (255, 255, 255, 255)
 
 # 5. Save the white-on-transparent PNG to disk
-cv2.imwrite(f"images/comb.5S_mask_trans_brush{brush_size}_low{lw}.png", rgba_mask)
+cv2.imwrite(f"images/{name}_mask_trans_brush{brush_size}_low{lw}.png", rgba_mask)

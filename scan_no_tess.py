@@ -81,7 +81,7 @@ def button_press():
     elif suffix == "-Z":
         new_suffix = visuffix
         time_entry.delete(0, tk.END)
-        time_entry.insert(0, "2045")
+        time_entry.insert(0, "1700")
     else:
         new_suffix = ""  # fallback if it's something unexpected
 

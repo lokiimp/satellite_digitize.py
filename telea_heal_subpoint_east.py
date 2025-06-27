@@ -5,20 +5,34 @@ import numpy as np
 from datetime import date, timedelta
 from rembg import remove, new_session
 from PIL import Image
+import json
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
-YEAR = 1978
+YEAR = 1977
 START_DAY = 1
-MAIN_SAT = "32A"
-ALT_SAT = "33A"
-ALT_SAT2 = "35A"
+MAIN_SAT = "13A"
+ALT_SAT = "14A"
+ALT_SAT2 = ""
 
 # Grid masks for different subpoints
+# TODO these will need to be updated with different masks that show up in the data
+# GRID_MASK_FILES = {
+#     ".5S74.5W": os.path.join(DIR, "masks/maskeast"),
+#     ".0N74.5W": os.path.join(DIR, "masks/maskeast"),
+#     ".5N74.5W": os.path.join(DIR, "masks/maskeast"),
+#     ".5S75.0W": os.path.join(DIR, "masks/maskeast"),
+#     ".0N75.0W": os.path.join(DIR, "masks/maskeast"),
+#     ".5N75.0W": os.path.join(DIR, "masks/maskeast"),
+#     ".5S75.5W": os.path.join(DIR, "masks/maskeast"),
+#     ".0N75.5W": os.path.join(DIR, "masks/maskeast"),
+#     ".5N75.5W": os.path.join(DIR, "masks/maskeast"),
+# }
+
 GRID_MASK_FILES = {
-    "5N": os.path.join(DIR, "masks/mask0.5N135.0W2.png"),
-    "0N": os.path.join(DIR, "masks/mask0.0N135.0W.png"),
-    "5S": os.path.join(DIR, "masks/mask0.5S135.0W.png"),
+    "74.5W": os.path.join(DIR, "masks/maskeast.png"),
+    "75.0W": os.path.join(DIR, "masks/maskeast.png"),
+    "75.5W": os.path.join(DIR, "masks/maskeast.png"),
 }
 
 INPAINT_RADIUS = 7
@@ -26,7 +40,7 @@ DILATE_PIXELS = 5
 
 OUTPUT_ROOT = os.path.join(
     DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi_4"
+    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi"
 )
 OS_FOLDERS = {
     "video_no_bg_with_grid": os.path.join(OUTPUT_ROOT, f"{YEAR}_vid_nobg_with_grid.mp4"),
@@ -144,7 +158,6 @@ def remove_background(img_bgr):
     rem = remove(pil, session=REMBG_SESSION).convert("RGBA")
     return np.array(rem)
 
-import json
 
 def read_subpoint(json_path):
     """
@@ -172,16 +185,12 @@ def read_subpoint(json_path):
             if isinstance(line.get("text"), str):
                 texts.append(line["text"].upper())
 
-    # 3) Define regex patterns with negative look-arounds
-    # patterns = {
-    #     "5N": [r"SN(?![OS])", r"5N(?!O)", r"SM(?![OS])"],  # don't match SN or 5N if followed by 'O'
-    #     "0N": [r"(?<!M)ON(?!O)", r"0N(?!O)", r"OM(?!O)"],  # don't match ON or 0N if followed by 'O'
-    #     "5S": [r"SS", r"58", r"38", r"88", r"55", r"59", r"5S(?!E)"]  # don't match 5S if followed by 'E'
-    # }
+    # 3) Define patterns
     patterns = {
-        "5N": [r"nothing to see here"],
-        "0N": [r"keep on moving im just"],
-        "5S": [r"triggering errors on purpose"]
+        "74.5W": ["74.5W", "74.5M", "74.50", "74.54"],
+        "75.0W": ["75.OW", "75.04", "75.OM", "75.0V", "75. OM", "75.00", "75.DW", "75.ON",
+                  "75.OU", "75. OW", "75.0M", "75. ON", "75. 00"],
+        "75.5W": ["75.5W", "75.5M", "75.5V", "75.50", ],
     }
 
     # 4) Search in priority order

@@ -8,11 +8,11 @@ from PIL import Image
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
-YEAR = 1978
-START_DAY = 1
+YEAR = 1976
+START_DAY = 183
 MAIN_SAT = "32A"
-ALT_SAT = "33A"
-ALT_SAT2 = "35A"
+ALT_SAT = "22A"
+ALT_SAT2 = ""
 
 # Grid masks for different subpoints
 GRID_MASK_FILES = {
@@ -26,7 +26,7 @@ DILATE_PIXELS = 5
 
 OUTPUT_ROOT = os.path.join(
     DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi_4"
+    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi_ns"
 )
 OS_FOLDERS = {
     "video_no_bg_with_grid": os.path.join(OUTPUT_ROOT, f"{YEAR}_vid_nobg_with_grid.mp4"),
@@ -173,15 +173,10 @@ def read_subpoint(json_path):
                 texts.append(line["text"].upper())
 
     # 3) Define regex patterns with negative look-arounds
-    # patterns = {
-    #     "5N": [r"SN(?![OS])", r"5N(?!O)", r"SM(?![OS])"],  # don't match SN or 5N if followed by 'O'
-    #     "0N": [r"(?<!M)ON(?!O)", r"0N(?!O)", r"OM(?!O)"],  # don't match ON or 0N if followed by 'O'
-    #     "5S": [r"SS", r"58", r"38", r"88", r"55", r"59", r"5S(?!E)"]  # don't match 5S if followed by 'E'
-    # }
     patterns = {
-        "5N": [r"nothing to see here"],
-        "0N": [r"keep on moving im just"],
-        "5S": [r"triggering errors on purpose"]
+        "5N": [r"SN(?![OS])", r"5N(?!O)", r"SM(?!O)"],  # don't match SN or 5N if followed by 'O'
+        "0N": [r"(?<!M)ON(?!O)", r"0N(?!O)", r"OM(?!O)"],  # don't match ON or 0N if followed by 'O'
+        "5S": [r"SS", r"58", r"38", r"88", r"55", r"59", r"5S(?!E)"]  # don't match 5S if followed by 'E'
     }
 
     # 4) Search in priority order

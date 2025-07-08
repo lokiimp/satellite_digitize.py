@@ -7,9 +7,9 @@ import glob
 #                        USER–CONFIGURATION
 # ───────────────────────────────────────────────────────────────────────────────
 
-INPUT_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid"
-OUTPUT_DIR   = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_colorbalanced_3"
-DEBUG_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_debug_bar_2"
+INPUT_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid"
+OUTPUT_DIR   = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid_colorbalanced"
+DEBUG_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid_debug_bar"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(DEBUG_DIR,  exist_ok=True)

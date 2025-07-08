@@ -9,30 +9,37 @@ import json
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
-YEAR = 1977
+YEAR = 1978
 START_DAY = 1
-MAIN_SAT = "13A"
-ALT_SAT = "14A"
+MAIN_SAT = "14A"
+ALT_SAT = ""
 ALT_SAT2 = ""
 
 # Grid masks for different subpoints
 # TODO these will need to be updated with different masks that show up in the data
-# GRID_MASK_FILES = {
-#     ".5S74.5W": os.path.join(DIR, "masks/maskeast"),
-#     ".0N74.5W": os.path.join(DIR, "masks/maskeast"),
-#     ".5N74.5W": os.path.join(DIR, "masks/maskeast"),
-#     ".5S75.0W": os.path.join(DIR, "masks/maskeast"),
-#     ".0N75.0W": os.path.join(DIR, "masks/maskeast"),
-#     ".5N75.0W": os.path.join(DIR, "masks/maskeast"),
-#     ".5S75.5W": os.path.join(DIR, "masks/maskeast"),
-#     ".0N75.5W": os.path.join(DIR, "masks/maskeast"),
-#     ".5N75.5W": os.path.join(DIR, "masks/maskeast"),
-# }
-
 GRID_MASK_FILES = {
-    "74.5W": os.path.join(DIR, "masks/maskeast.png"),
-    "75.0W": os.path.join(DIR, "masks/maskeast.png"),
-    "75.5W": os.path.join(DIR, "masks/maskeast.png"),
+    "5S74.5W": os.path.join(DIR, "masks/mask0.5S74.5W.png"),
+    "0N74.5W": os.path.join(DIR, "masks/mask0.0N74.5W.png"),
+    "5N74.5W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
+    "5S75.0W": os.path.join(DIR, "masks/mask0.5S75.0W.png"),
+    "0N75.0W": os.path.join(DIR, "masks/mask0.0N75.0W.png"),
+    ".5N75.0W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
+    "5S75.5W": os.path.join(DIR, "masks/mask0.5S75.5W.png"),
+    "0N75.5W": os.path.join(DIR, "masks/mask0.0N75.5W.png"),
+    "5N75.5W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
+}
+
+LAT_PATTERNS = {
+    "5N": [r"SN(?![OS])", r"5N(?!O)", r"SM(?![OS])"],
+    "0N": [r"(?<!M)ON(?![O0])", r"0N(?!O)", r"OM(?!O)"],
+    "5S": [r"SS", r"58", r"38", r"88", r"55", r"59", r"5S(?!E)"]
+}
+LON_PATTERNS = {
+    "74.5W": [r"74\.5W", r"74\.5M", r"74\.50", r"74\.54"],
+    "75.0W": [r"75\.0W", r"75\.OW", r"75\.04", r"75\.OM", r"75\.0V", r"75\. OM",
+               r"75\.00", r"75\.DW", r"75\.ON", r"75\.OU", r"75\. OW",
+               r"75\.OV"],
+    "75.5W": [r"75\.5W", r"75\.5M", r"75\.5V", r"75\.50"]
 }
 
 INPAINT_RADIUS = 7
@@ -158,6 +165,35 @@ def remove_background(img_bgr):
     rem = remove(pil, session=REMBG_SESSION).convert("RGBA")
     return np.array(rem)
 
+def find_lat_lon_from_json(json_path):
+    try:
+        data = json.load(open(json_path, 'r', errors='ignore'))
+    except Exception:
+        return None, None
+    texts = []
+    for block in data.get("readResult", {}).get("blocks", []):
+        for line in block.get("lines", []):
+            txt = line.get("text")
+            if txt:
+                texts.append(txt.upper())
+    lat = None
+    lon = None
+    for key, pats in LAT_PATTERNS.items():
+        for txt in texts:
+            if any(re.search(p, txt) for p in pats):
+                lat = key
+                break
+        if lat:
+            break
+    for key, pats in LON_PATTERNS.items():
+        for txt in texts:
+            if any(re.search(p, txt) for p in pats):
+                lon = key
+                break
+        if lon:
+            break
+    return lat, lon
+
 
 def read_subpoint(json_path):
     """
@@ -167,38 +203,9 @@ def read_subpoint(json_path):
       - Returns "5S" if any text contains SS, 58, 38, 88, or 5S not followed by 'E'
     in that priority order.  Otherwise returns None.
     """
-    # 1) Load JSON
-    try:
-        with open(json_path, 'r', errors='ignore') as f:
-            data = json.load(f)
-    except Exception:
-        return None
-
-    # 2) Gather only the captionResult.text + each OCR line.text
-    texts = []
-    cap = data.get("captionResult", {})
-    if isinstance(cap.get("text"), str):
-        texts.append(cap["text"].upper())
-
-    for block in data.get("readResult", {}).get("blocks", []):
-        for line in block.get("lines", []):
-            if isinstance(line.get("text"), str):
-                texts.append(line["text"].upper())
-
-    # 3) Define patterns
-    patterns = {
-        "74.5W": ["74.5W", "74.5M", "74.50", "74.54"],
-        "75.0W": ["75.OW", "75.04", "75.OM", "75.0V", "75. OM", "75.00", "75.DW", "75.ON",
-                  "75.OU", "75. OW", "75.0M", "75. ON", "75. 00"],
-        "75.5W": ["75.5W", "75.5M", "75.5V", "75.50", ],
-    }
-
-    # 4) Search in priority order
-    for result, pats in patterns.items():
-        for snippet in texts:
-            for pat in pats:
-                if re.search(pat, snippet):
-                    return result
+    lat, lon = find_lat_lon_from_json(json_path)
+    if lat and lon:
+        return f"{lat}{lon}"
 
     return None
 

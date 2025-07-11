@@ -1,9 +1,11 @@
 import tkinter as tk
 import subprocess
 import json
+import os
+import datetime
 import re
 
-# Replace these with your real Azure key and endpoint
+# Replace with your real Azure info
 AZURE_KEY = "628fKIEshyzMxKZKxlKvxNsRtt5ZPqouq3NhDgm8ng8cOaWRPR7MJQQJ99BEACYeBjFXJ3w3AAAFACOGjWD4"
 ENDPOINT_URL = (
     "https://scanned-image-text-ocr.cognitiveservices.azure.com/"
@@ -14,19 +16,24 @@ ENDPOINT_URL = (
     "&api-version=2024-02-01"
 )
 
+# Manual satellite lookup
+satellite_lookup = {
+    'SMS-B': {'norad': '07648', 'intldes': '75011A'}
+}
+
 root = tk.Tk()
 root.title("TLE Creator from Scan")
-root.geometry("400x400")
+root.geometry("450x400")
 
-# Labels for fields you’d expect in a TLE:
+# Fields shown in UI = raw paper values
 fields = [
-    "Satellite Number", "Epoch Year", "Epoch Month", "Epoch Day", "Epoch Hours",
-    "Mean Motion", "Inclination", "RAAN", "Eccentricity",
+    "Satellite Name", "Epoch Year", "Epoch Month", "Epoch Day", "Epoch Hours",
+    "Anomalistic Period", "Inclination", "RAAN", "Eccentricity",
     "Argument of Perigee", "Mean Anomaly", "Revolution Number"
 ]
 entries = {}
 
-# Build form:
+# Build form
 for idx, field in enumerate(fields):
     lbl = tk.Label(root, text=field + ":")
     lbl.grid(row=idx, column=0, sticky="e", padx=5, pady=2)
@@ -34,28 +41,27 @@ for idx, field in enumerate(fields):
     ent.grid(row=idx, column=1, padx=5, pady=2)
     entries[field] = ent
 
+def tle_checksum(line):
+    s = sum(int(c) for c in line if c.isdigit()) + line.count('-')
+    return str(s % 10)
 
 def scan_image_and_fill():
-    # Run scan (epsonscan2 with ./oscan.sf2)
+    # Scan
     result = subprocess.run(
         ["epsonscan2", "--scan", "./oscan.sf2"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         universal_newlines=True
     )
-    print("Scan complete:", result.stdout)
-
-    # For demonstration, assume output is named ./fullimage/img.tiff
+    print("Scan output:", result.stdout)
     match = re.search(r'imageCount:(\d+)', result.stdout)
-    if match:
-        number = match.group(1)
-        image_title = "img" + number
-        print(f"Extracted: {image_title}")
-    else:
-        print("Couldn't find image count in output.")
+    if not match:
+        print("Couldn't find imageCount in output.")
+        return
+    image_title = "img" + match.group(1)
     img_path = f"./oscimg/{image_title}.tiff"
 
-    # Send to Azure OCR:
+    # OCR
     cmd = [
         "curl",
         "-H", f"Ocp-Apim-Subscription-Key: {AZURE_KEY}",
@@ -66,70 +72,97 @@ def scan_image_and_fill():
     azure_result = subprocess.run(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True
     )
-
     print("OCR result:", azure_result.stdout)
-    ocr_data = json.loads(azure_result.stdout)
-
-    # Example: get text from first block, first line:
-    text = ""
     try:
-        text = ocr_data["readResult"]["blocks"][0]["lines"][0]["text"]
-    except Exception:
-        print("Could not parse OCR text")
+        ocr_data = json.loads(azure_result.stdout)
+    except json.JSONDecodeError:
+        print("Failed to parse OCR JSON.")
+        return
 
-    print("OCR text:", text)
+    # Save JSON
+    os.makedirs("./oscjson", exist_ok=True)
+    date_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    with open(f"./oscjson/{date_str}.json", "w", encoding="utf-8") as f:
+        json.dump(ocr_data, f, indent=2)
 
-    # Here you would use regex to extract numbers from OCR text
-    # For now, just fake data:
-    fake_data = {
-        "Satellite Number": "07648",
-        "Epoch Year": "75",
-        "Epoch Month": "11",
-        "Epoch Day": "30",
-        "Epoch Hours": "0",
-        "Mean Motion": "1.00270745",
-        "Inclination": "0.4920",
-        "RAAN": "281.3560",
-        "Eccentricity": "0003160",
-        "Argument of Perigee": "205.1690",
-        "Mean Anomaly": "171.8770",
+    # Parse text lines
+    lines = []
+    for block in ocr_data['readResult']['blocks']:
+        for line in block.get('lines', []):
+            lines.append(line['text'])
+    print("OCR lines:", lines)
+
+    def get_number_after(keyword):
+        try:
+            idx = next(i for i, l in enumerate(lines) if keyword in l)
+            next_line = lines[idx+1]
+            num = next_line.strip().split()[-1]
+            return num
+        except:
+            return "0"
+
+    sat_name = next((w for w in lines if 'SMS-B' in w), 'SMS-B')
+    epoch_line = next((w for w in lines if 'EPOCH' in w), "")
+    parts = epoch_line.split()
+    epoch_year = parts[1] if len(parts) > 1 else '75'
+    epoch_month = parts[3] if len(parts) > 3 else '11'
+    epoch_day = parts[5] if len(parts) > 5 else '30'
+    epoch_hour = parts[8].replace('H0.', '').strip() if len(parts) > 8 else '0'
+
+    autofill = {
+        "Satellite Name": sat_name,
+        "Epoch Year": epoch_year,
+        "Epoch Month": epoch_month,
+        "Epoch Day": epoch_day,
+        "Epoch Hours": epoch_hour,
+        "Anomalistic Period": get_number_after('ANOMALISTIC PERIOD'),
+        "Inclination": get_number_after('INCLINATION'),
+        "RAAN": get_number_after('OF ASCEND. NODE'),
+        "Eccentricity": get_number_after('ECCENTRICITY'),
+        "Argument of Perigee": get_number_after('ARG. OF PERIFOCUS'),
+        "Mean Anomaly": get_number_after('MEAN ANOMALY'),
         "Revolution Number": "547"
     }
-    # Autofill:
-    for key, val in fake_data.items():
+    for key, val in autofill.items():
         entries[key].delete(0, tk.END)
         entries[key].insert(0, val)
 
-
 def confirm_and_output_tle():
-    # Collect values:
     vals = {key: ent.get().strip() for key, ent in entries.items()}
-    # Build TLE lines:
-    # Epoch: YYDDD.DDD...
-    # For now, build DDD:
+
+    # Convert to TLE-specific data:
+    sat = satellite_lookup.get(vals["Satellite Name"], {'norad': '00000', 'intldes': '00000A'})
+    anom_period = float(vals["Anomalistic Period"])
+    mean_motion = round(1440 / anom_period, 8)
+    ecc7 = vals["Eccentricity"].replace('.', '').ljust(7, '0')[:7]
+
+    year = 1900 + int(vals["Epoch Year"])
     month = int(vals["Epoch Month"])
     day = int(vals["Epoch Day"])
-    # crude way to compute day of year:
-    import datetime
-    dt = datetime.datetime(1900 + int(vals["Epoch Year"]), month, day)
+    dt = datetime.datetime(year, month, day)
     ddd = dt.timetuple().tm_yday
     epoch_str = f"{vals['Epoch Year']}{ddd:03d}.00000000"
 
-    # First line:
+    first_deriv = '00000-0'
+    second_deriv = '00000+0'
+
     line1 = (
-        f"1 {vals['Satellite Number']}U 75011A   {epoch_str}  .00000000  00000-0  00000+0 0 0000"
+        f"1 {sat['norad']}U {sat['intldes']}   {epoch_str}  .00000000  {first_deriv} {second_deriv} 0    0"
     )
-    # Second line:
     line2 = (
-        f"2 {vals['Satellite Number']} {vals['Inclination']:>8} {vals['RAAN']:>8} {vals['Eccentricity']:>7} "
-        f"{vals['Argument of Perigee']:>8} {vals['Mean Anomaly']:>8} {vals['Mean Motion']:>11} {vals['Revolution Number']}"
+        f"2 {sat['norad']} {float(vals['Inclination']):8.4f} {float(vals['RAAN']):8.4f} {ecc7} "
+        f"{float(vals['Argument of Perigee']):8.4f} {float(vals['Mean Anomaly']):8.4f} "
+        f"{mean_motion:11.8f} {vals['Revolution Number']}"
     )
+
+    # Checksums
+    line1 = line1[:68] + tle_checksum(line1)
+    line2 = line2[:68] + tle_checksum(line2)
+
     print("\nGenerated TLE:")
     print(line1)
     print(line2)
 
-
-# Buttons:
 btn_scan = tk.Button(root, text="Scan Image & Autofill", command=scan_image_and_fill)
 btn_scan.grid(row=len(fields), column=0, pady=10)
 

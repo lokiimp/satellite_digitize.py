@@ -6,12 +6,27 @@ from datetime import date, timedelta
 from rembg import remove, new_session
 from PIL import Image
 import json
+import sys
+
+class Tee:
+    def __init__(self, filename):
+        self.file = open(filename, "w", encoding="utf-8")
+        self.stdout = sys.stdout
+
+    def write(self, data):
+        self.file.write(data)
+        self.stdout.write(data)
+
+    def flush(self):
+        self.file.flush()
+        self.stdout.flush()
+
 
 # --- Configuration ---
 DIR = "/ships22/sds/goes/digitized"
-YEAR = 1978
-START_DAY = 1
-MAIN_SAT = "14A"
+YEAR = 1976
+START_DAY = 183
+MAIN_SAT = "13A"
 ALT_SAT = ""
 ALT_SAT2 = ""
 
@@ -23,10 +38,10 @@ GRID_MASK_FILES = {
     "5N74.5W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
     "5S75.0W": os.path.join(DIR, "masks/mask0.5S75.0W.png"),
     "0N75.0W": os.path.join(DIR, "masks/mask0.0N75.0W.png"),
-    ".5N75.0W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
+    "5N75.0W": os.path.join(DIR, "masks/mask0.5N75.0W.png"),
     "5S75.5W": os.path.join(DIR, "masks/mask0.5S75.5W.png"),
     "0N75.5W": os.path.join(DIR, "masks/mask0.0N75.5W.png"),
-    "5N75.5W": os.path.join(DIR, "masks/mask0.0N75.0W.png"), #I'm not making this mask unless I have to
+    "5N75.5W": os.path.join(DIR, "masks/mask0.5N75.5W.png"),
 }
 
 LAT_PATTERNS = {
@@ -47,13 +62,16 @@ DILATE_PIXELS = 5
 
 OUTPUT_ROOT = os.path.join(
     DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi"
+    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi_2"
 )
+os.makedirs(OUTPUT_ROOT, exist_ok=True)
+OUTPUT_LOG = os.path.join(OUTPUT_ROOT, "output.txt")
+sys.stdout = Tee(OUTPUT_LOG)
 OS_FOLDERS = {
-    "video_no_bg_with_grid": os.path.join(OUTPUT_ROOT, f"{YEAR}_vid_nobg_with_grid.mp4"),
+    "video_no_bg_with_grid": os.path.join(OUTPUT_ROOT, f"{YEAR}_east_vid_nobg_with_grid.mp4"),
     "video_no_bg_inpainted": os.path.join(
         OUTPUT_ROOT,
-        f"{YEAR}_vid_nobg_telea_r{INPAINT_RADIUS}_d{DILATE_PIXELS}.mp4",
+        f"{YEAR}_east_vid_nobg_telea_r{INPAINT_RADIUS}_d{DILATE_PIXELS}.mp4",
     ),
     "folder_aligned_with_grid": os.path.join(OUTPUT_ROOT, "aligned_with_grid"),
     "folder_aligned_green": os.path.join(OUTPUT_ROOT, "aligned_green_grid"),

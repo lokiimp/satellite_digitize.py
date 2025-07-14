@@ -90,15 +90,30 @@ def scan_image_and_fill():
     for block in ocr_data['readResult']['blocks']:
         for line in block.get('lines', []):
             lines.append(line['text'])
-    print("OCR lines:", lines)
+    #print("OCR lines:", lines)
+    # Join into one single normalized string:
+    text_all = ' '.join(lines).lower()
+    text_all = re.sub(r'\s+', ' ', text_all)  # collapse multiple spaces
+    print("Flattened text:", text_all)
 
     def get_number_after(keyword):
-        try:
-            idx = next(i for i, l in enumerate(lines) if keyword in l)
-            next_line = lines[idx+1]
-            num = next_line.strip().split()[-1]
-            return num
-        except:
+        # Normalize keyword: remove spaces & dots
+        keyword_clean = re.sub(r'[\s\.]', '', keyword.lower())
+        # Remove spaces & dots from full text to search
+        text_searchable = re.sub(r'[\s\.]', '', text_all)
+
+        idx = text_searchable.find(keyword_clean)
+        if idx == -1:
+            return "0"
+
+        # From that index, find the number after the keyword in original text
+        # For robustness, find keyword in original text:
+        m = re.search(re.escape(keyword.lower()) + r'\s+([-\d\.\s]+)', text_all)
+        if m:
+            number = m.group(1)
+            # Remove internal spaces from number
+            return number.replace(' ', '')
+        else:
             return "0"
 
     sat_name = next((w for w in lines if 'SMS-B' in w), 'SMS-B')

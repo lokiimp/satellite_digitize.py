@@ -18,7 +18,14 @@ ENDPOINT_URL = (
 
 # Manual satellite lookup
 satellite_lookup = {
-    'SMS-B': {'norad': '07648', 'intldes': '75011A'}
+    'SMS-B': {'norad': '07648', 'intldes': '75011A'},
+    'SMS-2': {'norad': '07648', 'intldes': '75011A'},
+    'SMS-A': {'norad': '07298', 'intldes': '74033A'},
+    'SMS-1': {'norad': '07298', 'intldes': '74033A'},
+    'GOES-A': {'norad': '08366', 'intldes': '75100A'},
+    'GOES-1': {'norad': '08366', 'intldes': '75100A'},
+    'GOES-B': {'norad': '10061', 'intldes': '77048A'},
+    'GOES-2': {'norad': '10061', 'intldes': '77048A'},
 }
 
 root = tk.Tk()
@@ -72,7 +79,7 @@ def scan_image_and_fill():
     azure_result = subprocess.run(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True
     )
-    print("OCR result:", azure_result.stdout)
+    #print("OCR result:", azure_result.stdout)
     try:
         ocr_data = json.loads(azure_result.stdout)
     except json.JSONDecodeError:
@@ -90,34 +97,46 @@ def scan_image_and_fill():
     for block in ocr_data['readResult']['blocks']:
         for line in block.get('lines', []):
             lines.append(line['text'])
+
     #print("OCR lines:", lines)
-    # Join into one single normalized string:
+
+    # Flatten into single string, normalize
     text_all = ' '.join(lines).lower()
-    text_all = re.sub(r'\s+', ' ', text_all)  # collapse multiple spaces
+    text_all = re.sub(r'\s+', ' ', text_all)
     print("Flattened text:", text_all)
+    text_all = re.sub(r'\s+', ' ', text_all)
+    text_searchable = re.sub(r'[\s\.]', '', text_all)  # remove spaces & dots
 
+    # Step 1: find satellite name
+    sat_name = "UNKNOWN"
+    for name in satellite_lookup.keys():
+        name_clean = re.sub(r'[\s\.]', '', name.lower())
+        if name_clean in text_searchable:
+            sat_name = name
+            break
+
+    # Step 2: helper to flexibly find number after a keyword
     def get_number_after(keyword):
-        # Normalize keyword: remove spaces & dots
         keyword_clean = re.sub(r'[\s\.]', '', keyword.lower())
-        # Remove spaces & dots from full text to search
-        text_searchable = re.sub(r'[\s\.]', '', text_all)
-
-        idx = text_searchable.find(keyword_clean)
-        if idx == -1:
+        if text_searchable.find(keyword_clean) == -1:
             return "0"
 
-        # From that index, find the number after the keyword in original text
-        # For robustness, find keyword in original text:
-        m = re.search(re.escape(keyword.lower()) + r'\s+([-\d\.\s]+)', text_all)
+        # Build regex: keyword followed by optional space/dot, then capture number parts
+        pattern = r'[\s\.]*'.join(map(re.escape, keyword.lower().split()))
+        # capture one or more number parts possibly separated by spaces
+        pattern += r'\s*([-\d\. ]+)'
+
+        m = re.search(pattern, text_all)
         if m:
-            number = m.group(1)
-            # Remove internal spaces from number
-            return number.replace(' ', '')
+            number_raw = m.group(1)
+            # Remove spaces inside number like '1436. 23189' → '1436.23189'
+            number = number_raw.replace(' ', '')
+            return number
         else:
             return "0"
 
-    sat_name = next((w for w in lines if 'SMS-B' in w), 'SMS-B')
-    epoch_line = next((w for w in lines if 'EPOCH' in w), "")
+    # Step 3: get epoch parts (just find 'epoch' line if possible)
+    epoch_line = next((l for l in lines if 'epoch' in l.lower()), "")
     parts = epoch_line.split()
     epoch_year = parts[1] if len(parts) > 1 else '75'
     epoch_month = parts[3] if len(parts) > 3 else '11'
@@ -132,12 +151,16 @@ def scan_image_and_fill():
         "Epoch Hours": epoch_hour,
         "Anomalistic Period": get_number_after('ANOMALISTIC PERIOD'),
         "Inclination": get_number_after('INCLINATION'),
-        "RAAN": get_number_after('OF ASCEND. NODE'),
+        "RAAN": get_number_after('ASCEND NODE'),  # shorter flexible keyword
         "Eccentricity": get_number_after('ECCENTRICITY'),
-        "Argument of Perigee": get_number_after('ARG. OF PERIFOCUS'),
+        "Argument of Perigee": get_number_after('ARG OF PERIFOCUS'),
         "Mean Anomaly": get_number_after('MEAN ANOMALY'),
         "Revolution Number": "547"
     }
+
+    #print("Autofill parsed:", autofill)
+
+    # Update UI
     for key, val in autofill.items():
         entries[key].delete(0, tk.END)
         entries[key].insert(0, val)

@@ -24,9 +24,9 @@ class Tee:
 DIR = "/ships22/sds/goes/digitized"
 YEAR = 1978
 START_DAY = 1
-MAIN_SAT = "33A"
-ALT_SAT = "22A"
-ALT_SAT2 = ""
+MAIN_SAT = "32A"
+ALT_SAT = "33A"
+ALT_SAT2 = "35A"
 
 # Grid masks for different subpoints
 GRID_MASK_FILES = {
@@ -40,7 +40,7 @@ DILATE_PIXELS = 5
 
 OUTPUT_ROOT = os.path.join(
     DIR,
-    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_ir"
+    f"{MAIN_SAT}/vissr/{YEAR}/grid_aligned/aligned_output_vi_5"
 )
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 OUTPUT_LOG = os.path.join(OUTPUT_ROOT, "output.txt")
@@ -70,7 +70,7 @@ REMBG_SESSION = new_session("unet")
 FRAME_SIZE = (2000, 2000)
 FPS = 10
 FOURCC = cv2.VideoWriter_fourcc(*"mp4v")
-SAVE_DEBUG = True
+SAVE_DEBUG = False
 
 BRIGHT_THRESH = 180
 MAX_ANGLE = 2.2
@@ -246,9 +246,9 @@ for doy in range(START_DAY, last_doy + 1):
             else: continue
 
     for fname in sorted(os.listdir(main_dir)):
-        if not fname.lower().endswith(".ir.med.png"):
+        if not fname.lower().endswith(".vi.med.png"):
             continue
-        basefn = fname.replace(".ir.med.png", "")
+        basefn = fname.replace(".vi.med.png", "")
         json_path = os.path.join(main_dir, basefn + ".vi.json")
         img_path = os.path.join(main_dir, fname)
         if not os.path.isfile(json_path):

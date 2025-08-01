@@ -7,10 +7,10 @@ import cv2
 # ───────────────────────────────────────────────────────────────────────────────
 
 # Folder containing your color‐balanced PNGs named like 32A.1976.183.204500.png
-INPUT_DIR     = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_color_and_whitebalanced_3"
+INPUT_DIR     = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid_color_and_whitebalanced/"
 
 # Output video path
-OUTPUT_VIDEO  = os.path.join(INPUT_DIR, "1978_grid_wb_rebalanced.mp4")
+OUTPUT_VIDEO  = os.path.join(INPUT_DIR, "1977_grid_wb_rebalanced.mp4")
 
 # Video settings
 FPS           = 10

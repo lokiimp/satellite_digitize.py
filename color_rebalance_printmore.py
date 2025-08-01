@@ -7,9 +7,9 @@ import glob
 #                        USER–CONFIGURATION
 # ───────────────────────────────────────────────────────────────────────────────
 
-INPUT_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid"
-OUTPUT_DIR   = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid_colorbalanced"
-DEBUG_DIR    = "/ships22/sds/goes/digitized/32A/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid_debug_bar"
+INPUT_DIR    = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1976/grid_aligned/aligned_output_vi_2/aligned_with_grid"
+OUTPUT_DIR   = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1976/grid_aligned/aligned_output_vi_2/aligned_with_grid_colorbalanced"
+DEBUG_DIR    = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1976/grid_aligned/aligned_output_vi_2/aligned_with_grid_debug_bar"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(DEBUG_DIR,  exist_ok=True)
@@ -54,7 +54,7 @@ with open(SHIFT_LOG, "w") as log:
         diffs    = target - measured
 
         # zero out any individual shift > 30
-        diffs[np.abs(diffs) > 30] = 0
+        #diffs[np.abs(diffs) > 30] = 0
 
         avg_diff = np.mean(diffs)
 
@@ -76,14 +76,17 @@ with open(SHIFT_LOG, "w") as log:
 
         # --- log diffs ---
         diff_strs = [f"{d:.2f}" for d in diffs]
+        mes_strs = [f"{m:.2f}" for m in measured]
+        log.write(f"{filename} vals: " + ", ".join(mes_strs) + "\n")
         log.write(f"{filename} diffs: " + ", ".join(diff_strs) + "\n")
+        print(f"{filename} vals: " + ", ".join(mes_strs))
         print(f"{filename} diffs: " + ", ".join(diff_strs))
 
         # clamp average shift if too large
-        if abs(avg_diff) > 30:
-            log.write(f"{filename}: avg_diff {avg_diff:.2f} > 30 → adjusting to 0\n")
-            print(f"{filename}: avg_diff {avg_diff:.2f} > 30 → adjusting to 0")
-            avg_diff = 0
+        # if abs(avg_diff) > 30:
+        #     log.write(f"{filename}: avg_diff {avg_diff:.2f} > 30 → adjusting to 0\n")
+        #     print(f"{filename}: avg_diff {avg_diff:.2f} > 30 → adjusting to 0")
+        #     avg_diff = 0
 
         # apply brightness shift and save
         balanced = img.astype(np.float32) + avg_diff

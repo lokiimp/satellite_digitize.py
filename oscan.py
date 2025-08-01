@@ -25,6 +25,7 @@ satellite_lookup = {
     'SMS-1': {'norad': '07298', 'intldes': '74033A'},
     'GOES-A': {'norad': '08366', 'intldes': '75100A'},
     'GOES-1': {'norad': '08366', 'intldes': '75100A'},
+    'GOES 1': {'norad': '08366', 'intldes': '75100A'},
     'GOES-B': {'norad': '10061', 'intldes': '77048A'},
     'GOES-2': {'norad': '10061', 'intldes': '77048A'},
 }
@@ -191,7 +192,8 @@ def scan_image_and_fill():
     text_all = re.sub(r'\s+', ' ', text_all)
     print("Flattened text:", text_all)
     text_all = re.sub(r'\s+', ' ', text_all)
-    text_searchable = re.sub(r'[\s\.]', '', text_all)  # remove spaces & dots
+    text_searchable = re.sub(r'[\s\.\(\)]', '', text_all)  # remove spaces, dots, and parentheses
+    print("Normalized text_searchable:", text_searchable)
 
     # Step 1: find satellite name
     sat_name = "UNKNOWN"
@@ -203,14 +205,16 @@ def scan_image_and_fill():
 
     # Step 2: helper to flexibly find number after a keyword
     def get_number_after(keyword):
-        keyword_clean = re.sub(r'[\s\.]', '', keyword.lower())
+        keyword_clean = re.sub(r'[\s\.\(\)]', '', keyword.lower())
+        print("Trying keyword:", keyword_clean)
         if text_searchable.find(keyword_clean) == -1:
             return "0"
 
+
         # Build regex: keyword followed by optional space/dot, then capture number parts
-        pattern = r'[\s\.]*'.join(map(re.escape, keyword.lower().split()))
+        pattern = r'[\s\.\(\)]*'.join(map(re.escape, keyword.lower().split()))
         # capture one or more number parts possibly separated by spaces
-        pattern += r'\s*([-\d\. ]+)'
+        pattern += r'[\s\(\)]*([-\d\. ]+)'  # Allow spaces inside number
 
         m = re.search(pattern, text_all)
         if m:
@@ -232,6 +236,32 @@ def scan_image_and_fill():
     arg_of_perigee = get_number_after('ARG OF PERIFOCUS')
     if arg_of_perigee == "0":
         arg_of_perigee = get_number_after('ARGUMENT OF PERIGE DEG')
+    if arg_of_perigee == "0":
+        arg_of_perigee = get_number_after('ARGUMENT OF PERIGEE DEG')
+    if arg_of_perigee == "0":
+        arg_of_perigee = get_number_after('ARGUMENT OF PERIGEE')
+
+    anom_period = get_number_after('ANOMALISTIC PERIOD')
+
+    inclination = get_number_after('INCLINATION DEG')
+    if inclination == "0":
+        inclination = get_number_after("INCLINATION")
+
+    eccentricity = get_number_after('ECCENTRICITY')
+    if eccentricity == "0":
+        eccentricity = get_number_after('ECCENTRICY')
+
+    raan = get_number_after('ASC NODE DEG')
+    if raan == "0":
+        raan = get_number_after('ASC NODE')
+    if raan == "0":
+        raan = get_number_after('ASCEND NODE')
+
+
+
+    mean_anom = get_number_after('MEAN ANOMALY DEG')
+    if mean_anom == "0":
+        mean_anom = get_number_after('MEAN ANOMALY')
 
     autofill = {
         "Satellite Name": sat_name,
@@ -239,12 +269,12 @@ def scan_image_and_fill():
         "Epoch Month": epoch_month,
         "Epoch Day": epoch_day,
         "Epoch Hours": epoch_hour,
-        "Anomalistic Period": get_number_after('ANOMALISTIC PERIOD'),
-        "Inclination": get_number_after('INCLINATION DEG'),
-        "RAAN": get_number_after('ASC NODE DEG'),  # shorter flexible keyword
-        "Eccentricity": get_number_after('ECCENTRICITY'),
+        "Anomalistic Period": anom_period,
+        "Inclination": inclination,
+        "RAAN": raan,  # shorter flexible keyword
+        "Eccentricity": eccentricity,
         "Argument of Perigee": arg_of_perigee,
-        "Mean Anomaly": get_number_after('MEAN ANOMALY DEG'),
+        "Mean Anomaly": mean_anom,
         "Revolution Number": "100"
     }
 

@@ -6,10 +6,10 @@ import glob
 # ───────────────────────────────────────────────────────────────────────────────
 #                        USER–CONFIGURATION
 # ───────────────────────────────────────────────────────────────────────────────
-INPUT_DIR      = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid"
+INPUT_DIR      = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid"
 MASK_PATH      = "/ships22/sds/goes/digitized/masks/maskbar.png"
-OUTPUT_DIR     = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_color_and_whitebalanced_3"
-DEBUG_BAR_DIR  = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_debug_bar_7"
+OUTPUT_DIR     = INPUT_DIR.replace("aligned_with_grid","aligned_with_grid_color_and_whitebalanced")
+DEBUG_BAR_DIR  = INPUT_DIR.replace("aligned_with_grid","aligned_with_grid_debug_bar_2")
 #DEBUG_MASK_DIR = "/ships22/sds/goes/digitized/32A/vissr/1978/grid_aligned/aligned_output_vi_4/aligned_with_grid_debug_mask_overlay_6"
 
 for d in (OUTPUT_DIR, DEBUG_BAR_DIR):
@@ -153,6 +153,11 @@ def main():
 
             # save final
             cv2.imwrite(os.path.join(OUTPUT_DIR, fname), wb)
+            diff_strs = [f"{d:.2f}" for d in diffs]
+            mes_strs = [f"{m:.2f}" for m in vals]
+            log.write(f"{fname} vals: " + ", ".join(mes_strs) + "\n")
+            log.write(f"{fname} diffs: " + ", ".join(diff_strs) + "\n")
+
             log.write(f"{fname}: angle={tf['angle']:.2f}, dx={tf['dx']:.1f}, dy={tf['dy']:.1f}, shift={avg_shift:.2f}, wb_gains=({gb:.2f},{gg:.2f},{gr:.2f})\n")
             print(f"{fname}: applied shift {avg_shift:.2f}, white-balance gains=(" +
                   f"{gb:.2f},{gg:.2f},{gr:.2f})")

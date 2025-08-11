@@ -336,7 +336,7 @@ def confirm_and_output_tle():
 
     # Format first_deriv as decimal with sign and 8 places
     if first_deriv_val == 0:
-        first_deriv_str = " .00000000"
+        first_deriv_str = " .00000000 "
     else:
         first_deriv_str = f"{first_deriv_val:.8f}"
         if first_deriv_val > 0:
@@ -349,17 +349,22 @@ def confirm_and_output_tle():
     # Format second_deriv as exponential, e.g., 00000+0
     def format_exp(val):
         if val == 0:
-            return " 00000+0"
+            return "00000+0"
         exp = 0
         mant = val
         while abs(mant) < 1 and exp > -9:
             mant *= 10
             exp -= 1
-        mant_int = int(round(mant * 1e5))
-        return f"{abs(mant_int):05d}{exp:+d}".replace('+', '').replace('-', '-')  # ensure correct format
+        mant_int = int(round(abs(mant) * 1e4))  # abs here for safety
+        # Format: sign/mantissa/exponent
+        # leading space if positive, or '-' if negative value
+        sign_char = " " if val >= 0 else "-"
+        # mantissa is always 5 digits
+        # exponent includes sign + digit
+        exp_str = f"{exp:+d}"
+        return f"{sign_char}{mant_int:05d}{exp_str}"
     second_deriv_str = format_exp(second_deriv_val)
-    if second_deriv_val > 0:
-        second_deriv_str = " " + second_deriv_str
+
 
 
     # Bstar drag term keep zero

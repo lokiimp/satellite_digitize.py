@@ -6,7 +6,7 @@ import glob
 # ───────────────────────────────────────────────────────────────────────────────
 #                        USER–CONFIGURATION
 # ───────────────────────────────────────────────────────────────────────────────
-INPUT_DIR      = "/arc25/arcdata/alpha/goes/pregvar/sms02/vissr/1977/grid_aligned/aligned_output_vi_2/aligned_with_grid"
+INPUT_DIR      = "/arc25/arcdata/alpha/goes/pregvar/goes02/vissr/1978/grid_aligned/aligned_output_vi_2/aligned_with_grid"
 MASK_PATH      = "/ships22/sds/goes/digitized/masks/maskbar.png"
 OUTPUT_DIR     = INPUT_DIR.replace("aligned_with_grid","aligned_with_grid_color_and_whitebalanced")
 DEBUG_BAR_DIR  = INPUT_DIR.replace("aligned_with_grid","aligned_with_grid_debug_bar_2")

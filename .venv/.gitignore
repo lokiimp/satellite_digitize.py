@@ -18,6 +18,7 @@ dist/
 *.so    
 *.c
 *.pyi
+*.pxi
 .venv/
 __pycache__/*
 1px*

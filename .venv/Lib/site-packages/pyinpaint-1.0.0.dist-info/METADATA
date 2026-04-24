@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyinpaint
+Version: 1.0.0
+Summary: A lightweight image inpainting tool
+Home-page: https://github.com/aGIToz/PyInpaint
+Author: Amitoz AZAD
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: matplotlib
+
+UNKNOWN
+

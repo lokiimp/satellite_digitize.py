@@ -1,0 +1,3 @@
+[console_scripts]
+pyinpaint = pyinpaint.__main__:main
+

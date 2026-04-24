@@ -5,14 +5,12 @@ import datetime
 import subprocess
 import re
 
-# Usage check
 if len(sys.argv) < 2:
-    print("Usage: python check_all_subpoints.py SMS-1")
+    print("Usage: python tle_batch_compare.py SMS-1")
     sys.exit(1)
 
-sat_name = sys.argv[1].upper()
+sat_name = sys.argv[1].upper()  # e.g., SMS-1
 
-# Satellite folder map
 sat_folder_map = {
     'SMS-1': 'sms01',
     'SMS-A': 'sms01',
@@ -31,30 +29,35 @@ if not sat_folder:
 
 base_dir = "/ships22/sds/goes/digitized/TLE"
 sat_dir = os.path.join(base_dir, sat_folder)
-out_file = f"{sat_name}_subpoint_check.txt"
 
-all_outputs = []
-
-# Collect all folder dates
-folders = []
+dates_and_folders = []
 for year_dir in sorted(os.listdir(sat_dir)):
     year_path = os.path.join(sat_dir, year_dir)
     if not os.path.isdir(year_path):
         continue
     for folder in sorted(os.listdir(year_path)):
+        folder_path = os.path.join(year_path, folder)
+        if not os.path.isdir(folder_path):
+            continue
         parts = folder.split('_')
         if len(parts) >= 4:
+            yyyy, mm, dd = parts[0], parts[1], parts[2]
             try:
-                yyyy, mm, dd = map(int, parts[:3])
-                folder_date = datetime.date(yyyy, mm, dd)
-                folders.append((folder_date, os.path.join(year_path, folder)))
+                folder_date = datetime.date(int(yyyy), int(mm), int(dd))
+                dates_and_folders.append((folder_date, folder_path))
             except:
                 continue
 
-folders.sort()
+dates_and_folders.sort()
 
-# Run each day
-for date_obj, folder_path in folders:
+output_file = f"{sat_folder}.sbpt"
+all_lines = []
+errors = []
+prev_lat = None
+prev_lon = None
+prev_date = None
+
+for folder_date, folder_path in dates_and_folders:
     tle_file = None
     for file in os.listdir(folder_path):
         if file.endswith('.tle.txt') and sat_folder in file:
@@ -64,62 +67,52 @@ for date_obj, folder_path in folders:
     if not tle_file:
         continue
 
-    date_str = date_obj.strftime("%Y-%m-%d")
-    print(f"Running for {date_str}...")
-    try:
-        result = subprocess.run([
-            "./tle_to_subpoint2.bash",
-            tle_file,
-            date_str,
-            sat_name
-        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-        all_outputs.append(f"=== {date_str} ===\n" + result.stdout)
-    except Exception as e:
-        print(f"Error for {date_str}: {e}")
+    date_str = folder_date.isoformat()
+    result = subprocess.run(["./tle_to_subpoint2.bash", tle_file, date_str, sat_name], capture_output=True, text=True)
+    output = result.stdout
 
-# Parsing helpers
-def dms_to_decimal(dms: str) -> float:
-    sign = -1 if dms.startswith('-') else 1
-    parts = list(map(float, dms.strip('-').split(':')))
-    degrees = parts[0] + parts[1] / 60 + parts[2] / 3600
-    return sign * degrees
+    all_lines.append(f"=== {date_str} ===")
+    all_lines.append(output)
 
-def parse_blocks(text):
-    entries = []
-    blocks = re.split(r"\n=+ (\d{4}-\d{2}-\d{2}) =+\n", text)
-    for i in range(1, len(blocks), 2):
-        date = blocks[i]
-        block = blocks[i + 1]
-        lat_match = re.search(r"latitude\s+([\-\d:]+)", block)
-        lon_match = re.search(r"longitude\s+([\d:]+)", block)
-        if lat_match and lon_match:
-            lat = dms_to_decimal(lat_match.group(1))
-            lon = dms_to_decimal(lon_match.group(1))
-            entries.append((date, lat, lon))
-    return entries
+    lat = lon = None
+    for line in output.splitlines():
+        if "00:00:00" in line:
+            parts = line.strip().split()
+            try:
+                time_index = parts.index("00:00:00")
+                lat = parts[time_index + 1]
+                lon = parts[time_index + 2]
+            except:
+                continue
 
-def flag_large_differences(entries, threshold=3.0):
-    issues = []
-    for i in range(1, len(entries)):
-        prev_date, prev_lat, prev_lon = entries[i - 1]
-        curr_date, curr_lat, curr_lon = entries[i]
-        dlat = abs(curr_lat - prev_lat)
-        dlon = abs(curr_lon - prev_lon)
-        if dlat > threshold or dlon > threshold:
-            issues.append(
-                f"{curr_date}: Δlat={dlat:.2f}°, Δlon={dlon:.2f}° (from {prev_date})")
-    return issues
+    if lat and lon:
+        def dms_to_deg(s):
+            match = re.match(r'([+-]?)(\d+):(\d+):(\d+)', s)
+            if not match:
+                return 0.0
+            sign, d, m, s = match.groups()
+            deg = int(d) + int(m)/60 + int(s)/3600
+            if sign == '-':
+                deg = -deg
+            return deg
 
-# Parse and flag
-combined_text = "\n".join(all_outputs)
-entries = parse_blocks(combined_text)
-alerts = flag_large_differences(entries)
+        lat_deg = dms_to_deg(lat)
+        lon_deg = dms_to_deg(lon)
 
-# Write to file
-with open(out_file, "w") as f:
-    f.write(combined_text)
-    f.write("\n\n=== ALERTS OVER 3 DEG ===\n")
-    for alert in alerts:
-        f.write(alert + "\n")
+        if prev_lat is not None:
+            lat_diff = abs(lat_deg - prev_lat)
+            lon_diff = abs(lon_deg - prev_lon)
+            if lat_diff > 3.0 or lon_diff > 3.0:
+                errors.append(f"!!! {date_str} — LAT DIFF: {lat_diff:.2f}°, LON DIFF: {lon_diff:.2f}°")
 
-print(f"Analysis complete. Output written to {out_file}")
+        prev_lat = lat_deg
+        prev_lon = lon_deg
+        prev_date = folder_date
+
+with open(output_file, 'w') as f:
+    f.write('\n'.join(all_lines))
+    if errors:
+        f.write('\n\n=== ERRORS ===\n')
+        f.write('\n'.join(errors))
+
+print(f"Complete. Output saved to {output_file}")

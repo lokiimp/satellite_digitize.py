@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc196991-0933-49e7-943d-ff0d178cf51c" name="Changes" comment="add tle checks and fixes for errors for the scanned orbital element tles">
+      <change afterPath="$PROJECT_DIR$/allt2st.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reb_mask_unaligned_wb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sat_data_editor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subptVis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2st.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tle2subpt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oscan.py" beforeDir="false" afterPath="$PROJECT_DIR$/oscan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rebalance_from_mask_wb.py" beforeDir="false" afterPath="$PROJECT_DIR$/rebalance_from_mask_wb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tle_sub_comp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tle_sub_comp.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lokiimp&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lokiimp/satellite_digitize.py.git&quot;,
+    &quot;accountId&quot;: &quot;d55fc0c3-3b06-43c3-a667-badbfd2e0746&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2u07Hk20Y1Uyaf7Rm97oKsj1sky" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.TLEConverter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azvisiontest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.better_cropping_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.center.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cv2_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.entropy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.find_earth.executor&quot;: &quot;Run&quot;,
+    &quot;Python.format_exp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.greenmask.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grid_maker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grid_remove.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image_check.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image_check_archive.executor&quot;: &quot;Run&quot;,
+    &quot;Python.img_compare.executor&quot;: &quot;Run&quot;,
+    &quot;Python.img_crop.executor&quot;: &quot;Run&quot;,
+    &quot;Python.inpaint.executor&quot;: &quot;Run&quot;,
+    &quot;Python.linecleaner.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mask_heal_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mask_maker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.oscan.executor&quot;: &quot;Run&quot;,
+    &quot;Python.printmags.executor&quot;: &quot;Run&quot;,
+    &quot;Python.printmc.executor&quot;: &quot;Run&quot;,
+    &quot;Python.printmcidas.executor&quot;: &quot;Run&quot;,
+    &quot;Python.recolor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.recolor_and_inpaint.executor&quot;: &quot;Run&quot;,
+    &quot;Python.regrid.executor&quot;: &quot;Run&quot;,
+    &quot;Python.remove.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sat_data_editor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptVis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization 2nd gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization all fix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization all fr fix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization all.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization ats1&amp;3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization goes-1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization goes-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization post06 fix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization post06.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization post96 fix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization pre96 fix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization pre96.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization pregvar.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization r series.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization sms-1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization sms-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.subptvisualization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.telea.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tess_data_maker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_paddle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_pytesseract.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_tkinter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.try_with_mask.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lokii/PycharmProjects/PythonProject/subptVis.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lokii\PycharmProjects\PythonProject\.venv\Scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lokii\PycharmProjects\PythonProject" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.sat_data_editor">
+    <configuration name="sat_data_editor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sat_data_editor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization 2nd gen" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\GOES-8.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-9.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-10.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-11.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-12.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-15.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization all fix" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-1_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-3_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-7.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization all fr fix" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-1_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-3_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-7.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-8.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-9.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-10.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-11.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-12.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization all" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\ATS-1_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\ATS-3_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-7.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization ats1&amp;3" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\ATS-1_useful-h2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-3_useful-h.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization goes-1" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\GOES-1.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization goes-2" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\GOES-2.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization post06 fix" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization post06" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization post96 fix" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\GOES-8.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-9.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-10.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-11.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-12.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-13.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-14.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-15.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization pre96 fix" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-1_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\ATS-3_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-7.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization pre96" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\ATS-1_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\ATS-3_useful-h.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-7.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization pregvar" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-3.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-4.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-5.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-6.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-7.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization r series" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbptsfix\GOES-16.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-17.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-18.sbpt&quot; &quot;C:\Users\lokii\Documents\sbptsfix\GOES-19.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization s1s2g1g2" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\SMS-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\SMS-2.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-1.sbpt&quot; &quot;C:\Users\lokii\Documents\sbpts\GOES-2.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization sms-1" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\SMS-1.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="subptvisualization sms-2" type="PythonConfigurationType" factoryName="Python">
+      <module name="PythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (PythonProject)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subptVis.py" />
+      <option name="PARAMETERS" value="-l &quot;C:\Users\lokii\Documents\sbpts\SMS-2.sbpt&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.sat_data_editor" />
+      <item itemvalue="Python.subptvisualization 2nd gen" />
+      <item itemvalue="Python.subptvisualization all fix" />
+      <item itemvalue="Python.subptvisualization all fr fix" />
+      <item itemvalue="Python.subptvisualization all" />
+      <item itemvalue="Python.subptvisualization ats1&amp;3" />
+      <item itemvalue="Python.subptvisualization goes-1" />
+      <item itemvalue="Python.subptvisualization goes-2" />
+      <item itemvalue="Python.subptvisualization post06 fix" />
+      <item itemvalue="Python.subptvisualization post06" />
+      <item itemvalue="Python.subptvisualization post96 fix" />
+      <item itemvalue="Python.subptvisualization pre96 fix" />
+      <item itemvalue="Python.subptvisualization pre96" />
+      <item itemvalue="Python.subptvisualization pregvar" />
+      <item itemvalue="Python.subptvisualization r series" />
+      <item itemvalue="Python.subptvisualization s1s2g1g2" />
+      <item itemvalue="Python.subptvisualization sms-1" />
+      <item itemvalue="Python.subptvisualization sms-2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sat_data_editor" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-PY-252.25557.178" />
+        <option value="bundled-python-sdk-ce6832f46686-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.178" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc196991-0933-49e7-943d-ff0d178cf51c" name="Changes" comment="" />
+      <created>1741373556226</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741373556226</updated>
+      <workItem from="1757347542968" duration="2552000" />
+      <workItem from="1757518677148" duration="3184000" />
+      <workItem from="1758121674912" duration="1168000" />
+      <workItem from="1758127918960" duration="1761000" />
+      <workItem from="1758742139501" duration="1759000" />
+      <workItem from="1759506247300" duration="3141000" />
+      <workItem from="1759768138177" duration="80000" />
+      <workItem from="1759778338117" duration="625000" />
+      <workItem from="1760368759497" duration="2615000" />
+      <workItem from="1760464201911" duration="22000" />
+      <workItem from="1762966930696" duration="97000" />
+      <workItem from="1766433151228" duration="17000" />
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <option name="closed" value="true" />
+      <created>1748986916464</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748986916464</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <option name="closed" value="true" />
+      <created>1748987064695</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748987064695</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <option name="closed" value="true" />
+      <created>1748987490477</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748987490477</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added scripts">
+      <option name="closed" value="true" />
+      <created>1749047726855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749047726855</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added scripts for 77 grid alignment">
+      <option name="closed" value="true" />
+      <created>1749062175574</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749062175574</updated>
+    </task>
+    <task id="LOCAL-00006" summary="moved scripts">
+      <option name="closed" value="true" />
+      <created>1749149541529</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749149541529</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added scripts">
+      <option name="closed" value="true" />
+      <created>1749149833850</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749149833850</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated scan">
+      <option name="closed" value="true" />
+      <created>1749570583249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749570583249</updated>
+    </task>
+    <task id="LOCAL-00009" summary="updated telea_heal_subpoint">
+      <option name="closed" value="true" />
+      <created>1749578419024</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749578419024</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updated telea_heal_subpoint to have misreadings of subpoint">
+      <option name="closed" value="true" />
+      <created>1749581893632</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749581893632</updated>
+    </task>
+    <task id="LOCAL-00011" summary="rebalances">
+      <option name="closed" value="true" />
+      <created>1751037143962</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751037143962</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated some scans for different types of physical image">
+      <option name="closed" value="true" />
+      <created>1752000271165</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1752000271165</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added oscan test">
+      <option name="closed" value="true" />
+      <created>1752268613012</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1752268613012</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated oscan">
+      <option name="closed" value="true" />
+      <created>1752270092644</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752270092644</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update oscan to use one line instead of blocks">
+      <option name="closed" value="true" />
+      <created>1752524848320</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1752524848320</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add real lookup to oscan">
+      <option name="closed" value="true" />
+      <created>1752595893993</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1752595893993</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add raw2area and mcidas helper functions">
+      <option name="closed" value="true" />
+      <created>1753729296037</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1753729296037</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add a way to compare tles instance to instance for digitized orbital elements">
+      <option name="closed" value="true" />
+      <created>1754063916105</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1754063916105</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add tle checks and fixes for errors for the scanned orbital element tles">
+      <option name="closed" value="true" />
+      <created>1754943217520</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1754943217520</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <MESSAGE value="added scripts for 77 grid alignment" />
+    <MESSAGE value="moved scripts" />
+    <MESSAGE value="added scripts" />
+    <MESSAGE value="updated scan" />
+    <MESSAGE value="updated telea_heal_subpoint" />
+    <MESSAGE value="updated telea_heal_subpoint to have misreadings of subpoint" />
+    <MESSAGE value="rebalances" />
+    <MESSAGE value="updated some scans for different types of physical image" />
+    <MESSAGE value="added oscan test" />
+    <MESSAGE value="updated oscan" />
+    <MESSAGE value="update oscan to use one line instead of blocks" />
+    <MESSAGE value="add real lookup to oscan" />
+    <MESSAGE value="add raw2area and mcidas helper functions" />
+    <MESSAGE value="add a way to compare tles instance to instance for digitized orbital elements" />
+    <MESSAGE value="add tle checks and fixes for errors for the scanned orbital element tles" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tle checks and fixes for errors for the scanned orbital element tles" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/test_pytesseract_py$sat_data_editor.coverage" NAME="sat_data_editor Coverage Results" MODIFIED="1758743297308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/test_pytesseract_py$subptvisualization_2nd_gen.coverage" NAME="subptvisualization 2nd gen Coverage Results" MODIFIED="1758742791365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/test_pytesseract_py$subptvisualization_r_series.coverage" NAME="subptvisualization r series Coverage Results" MODIFIED="1757518945634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

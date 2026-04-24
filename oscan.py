@@ -28,6 +28,7 @@ satellite_lookup = {
     'GOES 1': {'norad': '08366', 'intldes': '75100A'},
     'GOES-B': {'norad': '10061', 'intldes': '77048A'},
     'GOES-2': {'norad': '10061', 'intldes': '77048A'},
+    'ATS-3': {'norad': '03029', 'intldes': '67111A'},
 }
 
 ocr_data = {}  # will hold the last OCR JSON
@@ -302,6 +303,9 @@ def confirm_and_output_tle():
     elif 'GOES-B' in sat_raw or 'GOES-2' in sat_raw:
         sat_folder = 'goes02'
         sat_header = 'GOES-2'
+    elif 'ATS-3' in sat_raw:
+        sat_folder = 'ats03'
+        sat_header = 'ATS-3'
     else:
         sat_folder = 'unknown'
         sat_header = sat_raw

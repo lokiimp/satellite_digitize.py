@@ -1,0 +1,635 @@
+(gem_env) [sgunshor@dcarchivey ~]$ python harvest_corrupt_goes_archive_site.py   --dataset-alias DGOES02   --products A-IR,A-VI   --out-root /data/sgunshor/corruptgoes   --gif-maplalo   --execute
+Mode: EXECUTE
+Dataset: DGOES02
+Products: ['A-IR', 'A-VI']
+Date range: 1978-02-01 -> 1978-03-10
+Run dir: /data/sgunshor/corruptgoes/runs/run_20260401_191445
+Initializing DATALOC/DSSERVE
+    CMD: dataloc.k ADD DGOES02 DCARCHIVEX.SSEC.WISC.EDU
+Group Name                    Server IP Address
+--------------------         ----------------------------------------
+DGOES02                      DCARCHIVEX.SSEC.WISC.EDU
+
+<LOCAL-DATA> indicates that data will be accessed from the local data directory.
+DATALOC -- done
+    CMD: dsserve.k ADD A/A AREA 1 9999
+Group/Descriptor         Type  Format & Range     RT Comment
+------------------------ ----- ------------------ -- --------------------
+A/A                      IMAGE AREA   1-9999
+dsserve.k: done
+==============================================================================
+Day: 1978-02-01
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-01
+  Product: A-VI
+    CMD: imglist.k DGOES02/A-VI DAY=1978-02-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VI
+imglist.k: Image directory server unable to resolve this dataset: DGOES02/A-VI
+imglist.k: done
+  WARNING: unresolved dataset for A-VI; skipping it for remaining days
+==============================================================================
+Day: 1978-02-02
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-02
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-03
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-03
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-04
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-04
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-05
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-05
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-06
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-06
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-07
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-07
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-08
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-08
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-09
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-09
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-10
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-10
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-11
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-11 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   1  GOES-2 IR     11 FEB 78042  04:31:00    -7   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 04:31:00 -> slot 7000
+    CMD: imgcopy.k DGOES02/A-IR A/A.7000 SIZE=SAME STYPE=VISR DAY=1978-02-11 TIME=04:31:00 04:31:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 04:31:00 04:31:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 04:31:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-12
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-12 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2 IR     12 FEB 78043  18:30:00    65   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:30:00 -> slot 7001
+    CMD: imgcopy.k DGOES02/A-IR A/A.7001 SIZE=SAME STYPE=VISR DAY=1978-02-12 TIME=18:30:00 18:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 18:30:00 18:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 18:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-13
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-13 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   5  GOES-2 IR     13 FEB 78044  17:30:00    13   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 17:30:00 -> slot 7002
+    CMD: imgcopy.k DGOES02/A-IR A/A.7002 SIZE=SAME STYPE=VISR DAY=1978-02-13 TIME=17:30:00 17:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 17:30:00 17:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 17:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-14
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-14 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2 IR     14 FEB 78045  11:00:00    50   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 11:00:00 -> slot 7003
+    CMD: imgcopy.k DGOES02/A-IR A/A.7003 SIZE=SAME STYPE=VISR DAY=1978-02-14 TIME=11:00:00 11:00:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 11:00:00 11:00:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 11:00:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-15
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-15 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-15
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-16
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-16 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   4  GOES-2 IR     16 FEB 78047  18:00:00     3   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:00:00 -> slot 7004
+    CMD: imgcopy.k DGOES02/A-IR A/A.7004 SIZE=SAME STYPE=VISR DAY=1978-02-16 TIME=18:00:00 18:00:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 18:00:00 18:00:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 18:00:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-17
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-17 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2 IR     17 FEB 78048  18:00:00     3   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:00:00 -> slot 7005
+    CMD: imgcopy.k DGOES02/A-IR A/A.7005 SIZE=SAME STYPE=VISR DAY=1978-02-17 TIME=18:00:00 18:00:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 18:00:00 18:00:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 18:00:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-18
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-18 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2 IR     18 FEB 78049  20:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 20:30:00 -> slot 7006
+    CMD: imgcopy.k DGOES02/A-IR A/A.7006 SIZE=SAME STYPE=VISR DAY=1978-02-18 TIME=20:30:00 20:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 20:30:00 20:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 20:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-19
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-19 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-19
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-20
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-20 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     20 FEB 78051  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7007
+    CMD: imgcopy.k DGOES02/A-IR A/A.7007 SIZE=SAME STYPE=VISR DAY=1978-02-20 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-21
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-21 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     21 FEB 78052  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7008
+    CMD: imgcopy.k DGOES02/A-IR A/A.7008 SIZE=SAME STYPE=VISR DAY=1978-02-21 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-22
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-22 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  43  GOES-2 IR     22 FEB 78053  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7009
+    CMD: imgcopy.k DGOES02/A-IR A/A.7009 SIZE=SAME STYPE=VISR DAY=1978-02-22 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-23
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-23 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   7  GOES-2 IR     23 FEB 78054  04:00:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 04:00:00 -> slot 7010
+    CMD: imgcopy.k DGOES02/A-IR A/A.7010 SIZE=SAME STYPE=VISR DAY=1978-02-23 TIME=04:00:00 04:00:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 04:00:00 04:00:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 04:00:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-24
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-24 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  35  GOES-2 IR     24 FEB 78055  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7011
+    CMD: imgcopy.k DGOES02/A-IR A/A.7011 SIZE=SAME STYPE=VISR DAY=1978-02-24 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-25
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-25 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     25 FEB 78056  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7012
+    CMD: imgcopy.k DGOES02/A-IR A/A.7012 SIZE=SAME STYPE=VISR DAY=1978-02-25 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-26
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-26 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2 IR     26 FEB 78057  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7013
+    CMD: imgcopy.k DGOES02/A-IR A/A.7013 SIZE=SAME STYPE=VISR DAY=1978-02-26 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-27
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-27 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     27 FEB 78058  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7014
+    CMD: imgcopy.k DGOES02/A-IR A/A.7014 SIZE=SAME STYPE=VISR DAY=1978-02-27 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-02-28
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-28 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  31  GOES-2 IR     28 FEB 78059  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7015
+    CMD: imgcopy.k DGOES02/A-IR A/A.7015 SIZE=SAME STYPE=VISR DAY=1978-02-28 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-01
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR      1 MAR 78060  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7016
+    CMD: imgcopy.k DGOES02/A-IR A/A.7016 SIZE=SAME STYPE=VISR DAY=1978-03-01 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-02
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2 IR      2 MAR 78061  23:30:00    10   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7017
+    CMD: imgcopy.k DGOES02/A-IR A/A.7017 SIZE=SAME STYPE=VISR DAY=1978-03-02 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-03
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  48  GOES-2 IR      3 MAR 78062  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7018
+    CMD: imgcopy.k DGOES02/A-IR A/A.7018 SIZE=SAME STYPE=VISR DAY=1978-03-03 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-04
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  45  GOES-2 IR      4 MAR 78063  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7019
+    CMD: imgcopy.k DGOES02/A-IR A/A.7019 SIZE=SAME STYPE=VISR DAY=1978-03-04 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-05
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR      5 MAR 78064  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7020
+    CMD: imgcopy.k DGOES02/A-IR A/A.7020 SIZE=SAME STYPE=VISR DAY=1978-03-05 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-06
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  40  GOES-2 IR      6 MAR 78065  21:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 21:30:00 -> slot 7021
+    CMD: imgcopy.k DGOES02/A-IR A/A.7021 SIZE=SAME STYPE=VISR DAY=1978-03-06 TIME=21:30:00 21:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 21:30:00 21:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 21:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-07
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-03-07
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-08
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-03-08
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-09
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  14  GOES-2 IR      9 MAR 78068  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7022
+    CMD: imgcopy.k DGOES02/A-IR A/A.7022 SIZE=SAME STYPE=VISR DAY=1978-03-09 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Day: 1978-03-10
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  26  GOES-2 IR     10 MAR 78069  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7023
+    CMD: imgcopy.k DGOES02/A-IR A/A.7023 SIZE=SAME STYPE=VISR DAY=1978-03-10 TIME=23:30:00 23:30:00
+imgcopy.k:
+imgcopy.k: first TIME= argument is too big --> 23:30:00 23:30:00
+imgcopy.k: Must be character string of no more than 12 chars.
+imgcopy.k:
+imgcopy.k: done
+    WARNING: imgcopy failed for A-IR 23:30:00 (code 1)
+  Product: A-VI (skipped: unresolved dataset)
+==============================================================================
+Frames harvested: 0
+Failures: 24
+Website root: /data/sgunshor/corruptgoes/runs/run_20260401_191445/website
+(gem_env) [sgunshor@dcarchivey ~]$

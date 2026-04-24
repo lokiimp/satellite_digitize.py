@@ -1,0 +1,1664 @@
+(gem_env) [sgunshor@dcarchivey ~]$ python harvest_corrupt_goes_archive_site.py   --dataset-alias DGOES02   --products A-IR,A-VI   --out-root /data/sgunshor/corruptgoes   --gif-maplalo   --execute
+Mode: EXECUTE
+Dataset: DGOES02
+Products: ['A-IR', 'A-VI']
+Date range: 1978-02-01 -> 1978-03-10
+Run dir: /data/sgunshor/corruptgoes/runs/run_20260401_193249
+Initializing DATALOC/DSSERVE
+    CMD: dataloc.k ADD DGOES02 DCARCHIVEX.SSEC.WISC.EDU
+Group Name                    Server IP Address
+--------------------         ----------------------------------------
+DGOES02                      DCARCHIVEX.SSEC.WISC.EDU
+
+<LOCAL-DATA> indicates that data will be accessed from the local data directory.
+DATALOC -- done
+    CMD: dsserve.k ADD A/A AREA 1 9999
+Group/Descriptor         Type  Format & Range     RT Comment
+------------------------ ----- ------------------ -- --------------------
+A/A                      IMAGE AREA   1-9999
+dsserve.k: done
+==============================================================================
+Day: 1978-02-01
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-01
+  Product: A-VI
+    CMD: imglist.k DGOES02/A-VI DAY=1978-02-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VI
+imglist.k: Image directory server unable to resolve this dataset: DGOES02/A-VI
+imglist.k: done
+  INFO: trying fallback descriptor A-VIS for A-VI
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  INFO: resolved A-VI -> A-VIS
+==============================================================================
+Day: 1978-02-02
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-02
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-02
+==============================================================================
+Day: 1978-02-03
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-03
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-03
+==============================================================================
+Day: 1978-02-04
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-04
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-04
+==============================================================================
+Day: 1978-02-05
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-05
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-05
+==============================================================================
+Day: 1978-02-06
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-06
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-06
+==============================================================================
+Day: 1978-02-07
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-07
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-07
+==============================================================================
+Day: 1978-02-08
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-08
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-08
+==============================================================================
+Day: 1978-02-09
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-09
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-09
+==============================================================================
+Day: 1978-02-10
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-10
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-10
+==============================================================================
+Day: 1978-02-11
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-11 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   1  GOES-2 IR     11 FEB 78042  04:31:00    -7   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 04:31:00 -> slot 7000
+    CMD: imgcopy.k DGOES02/A-IR A/A.7000 SIZE=SAME STYPE=VISR DAY=1978-02-11 TIME=04:31 04:31
+Beginning Image Data transfer, bytes= 6425312
+Transferring AREA data outbound, bytes= 6425472
+IMGCOPY: DGOES02/A-IR.1 copied to A/A.7000
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7000
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_11_042/dgoes02.1978.042.043100.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_11_042/dgoes02.1978.042.043100.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-11 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   1  GOES-2        11 FEB 78042  04:31:00    -7   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 04:31:00 -> slot 7001
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7001 SIZE=SAME STYPE=VISR DAY=1978-02-11 TIME=04:31 04:31
+Beginning Image Data transfer, bytes= 198622464
+Transferring AREA data outbound, bytes= 198622624
+IMGCOPY: DGOES02/A-VIS.1 copied to A/A.7001
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7001
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_11_042/dgoes02.1978.042.043100.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_11_042/dgoes02.1978.042.043100.avi.gif
+==============================================================================
+Day: 1978-02-12
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-12 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2 IR     12 FEB 78043  18:30:00    65   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:30:00 -> slot 7002
+    CMD: imgcopy.k DGOES02/A-IR A/A.7002 SIZE=SAME STYPE=VISR DAY=1978-02-12 TIME=18:30 18:30
+Beginning Image Data transfer, bytes= 697024
+Transferring AREA data outbound, bytes= 697184
+IMGCOPY: DGOES02/A-IR.3 copied to A/A.7002
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7002
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_12_043/dgoes02.1978.043.183000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 124128
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_12_043/dgoes02.1978.043.183000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-12 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2        12 FEB 78043  18:30:00    64   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 18:30:00 -> slot 7003
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7003 SIZE=SAME STYPE=VISR DAY=1978-02-12 TIME=18:30 18:30
+Beginning Image Data transfer, bytes= 21526272
+Transferring AREA data outbound, bytes= 21526432
+IMGCOPY: DGOES02/A-VIS.3 copied to A/A.7003
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7003
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_12_043/dgoes02.1978.043.183000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_12_043/dgoes02.1978.043.183000.avi.gif
+==============================================================================
+Day: 1978-02-13
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-13 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   5  GOES-2 IR     13 FEB 78044  17:30:00    13   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 17:30:00 -> slot 7004
+    CMD: imgcopy.k DGOES02/A-IR A/A.7004 SIZE=SAME STYPE=VISR DAY=1978-02-13 TIME=17:30 17:30
+Beginning Image Data transfer, bytes= 5365104
+Transferring AREA data outbound, bytes= 5365264
+IMGCOPY: DGOES02/A-IR.5 copied to A/A.7004
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7004
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_13_044/dgoes02.1978.044.173000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_13_044/dgoes02.1978.044.173000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-13 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   5  GOES-2        13 FEB 78044  17:30:00    13   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 17:30:00 -> slot 7005
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7005 SIZE=SAME STYPE=VISR DAY=1978-02-13 TIME=17:30 17:30
+Beginning Image Data transfer, bytes= 165844992
+Transferring AREA data outbound, bytes= 165845152
+IMGCOPY: DGOES02/A-VIS.5 copied to A/A.7005
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7005
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_13_044/dgoes02.1978.044.173000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_13_044/dgoes02.1978.044.173000.avi.gif
+==============================================================================
+Day: 1978-02-14
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-14 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2 IR     14 FEB 78045  11:00:00    50   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 11:00:00 -> slot 7006
+    CMD: imgcopy.k DGOES02/A-IR A/A.7006 SIZE=SAME STYPE=VISR DAY=1978-02-14 TIME=11:00 11:00
+Beginning Image Data transfer, bytes= 1848220
+Transferring AREA data outbound, bytes= 1848380
+IMGCOPY: DGOES02/A-IR.10 copied to A/A.7006
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7006
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_14_045/dgoes02.1978.045.110000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 327828
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_14_045/dgoes02.1978.045.110000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-14 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2        14 FEB 78045  11:00:00    49   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 11:00:00 -> slot 7007
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7007 SIZE=SAME STYPE=VISR DAY=1978-02-14 TIME=11:00 11:00
+Beginning Image Data transfer, bytes= 57116736
+Transferring AREA data outbound, bytes= 57116896
+IMGCOPY: DGOES02/A-VIS.10 copied to A/A.7007
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7007
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_14_045/dgoes02.1978.045.110000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_14_045/dgoes02.1978.045.110000.avi.gif
+==============================================================================
+Day: 1978-02-15
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-15 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-15
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-15 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-15
+==============================================================================
+Day: 1978-02-16
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-16 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   4  GOES-2 IR     16 FEB 78047  18:00:00     3   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:00:00 -> slot 7008
+    CMD: imgcopy.k DGOES02/A-IR A/A.7008 SIZE=SAME STYPE=VISR DAY=1978-02-16 TIME=18:00 18:00
+Beginning Image Data transfer, bytes= 6650804
+Transferring AREA data outbound, bytes= 6650964
+IMGCOPY: DGOES02/A-IR.4 copied to A/A.7008
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7008
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_16_047/dgoes02.1978.047.180000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_16_047/dgoes02.1978.047.180000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-16 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   4  GOES-2        16 FEB 78047  18:00:00     3   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 18:00:00 -> slot 7009
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7009 SIZE=SAME STYPE=VISR DAY=1978-02-16 TIME=18:00 18:00
+Beginning Image Data transfer, bytes= 205593792
+Transferring AREA data outbound, bytes= 205593952
+IMGCOPY: DGOES02/A-VIS.4 copied to A/A.7009
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7009
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_16_047/dgoes02.1978.047.180000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_16_047/dgoes02.1978.047.180000.avi.gif
+==============================================================================
+Day: 1978-02-17
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-17 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2 IR     17 FEB 78048  18:00:00     3   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 18:00:00 -> slot 7010
+    CMD: imgcopy.k DGOES02/A-IR A/A.7010 SIZE=SAME STYPE=VISR DAY=1978-02-17 TIME=18:00 18:00
+Beginning Image Data transfer, bytes= 6631024
+Transferring AREA data outbound, bytes= 6631184
+IMGCOPY: DGOES02/A-IR.3 copied to A/A.7010
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7010
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_17_048/dgoes02.1978.048.180000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_17_048/dgoes02.1978.048.180000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-17 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   3  GOES-2        17 FEB 78048  18:00:00     2   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 18:00:00 -> slot 7011
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7011 SIZE=SAME STYPE=VISR DAY=1978-02-17 TIME=18:00 18:00
+Beginning Image Data transfer, bytes= 204982272
+Transferring AREA data outbound, bytes= 204982432
+IMGCOPY: DGOES02/A-VIS.3 copied to A/A.7011
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7011
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_17_048/dgoes02.1978.048.180000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_17_048/dgoes02.1978.048.180000.avi.gif
+==============================================================================
+Day: 1978-02-18
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-18 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2 IR     18 FEB 78049  20:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 20:30:00 -> slot 7012
+    CMD: imgcopy.k DGOES02/A-IR A/A.7012 SIZE=SAME STYPE=VISR DAY=1978-02-18 TIME=20:30 20:30
+Beginning Image Data transfer, bytes= 7085964
+Transferring AREA data outbound, bytes= 7086124
+IMGCOPY: DGOES02/A-IR.10 copied to A/A.7012
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7012
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_18_049/dgoes02.1978.049.203000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_18_049/dgoes02.1978.049.203000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-18 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  10  GOES-2        18 FEB 78049  20:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 20:30:00 -> slot 7013
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7013 SIZE=SAME STYPE=VISR DAY=1978-02-18 TIME=20:30 20:30
+Beginning Image Data transfer, bytes= 219047232
+Transferring AREA data outbound, bytes= 219047392
+IMGCOPY: DGOES02/A-VIS.10 copied to A/A.7013
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7013
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_18_049/dgoes02.1978.049.203000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_18_049/dgoes02.1978.049.203000.avi.gif
+==============================================================================
+Day: 1978-02-19
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-19 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-02-19
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-19 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-02-19
+==============================================================================
+Day: 1978-02-20
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-20 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     20 FEB 78051  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7014
+    CMD: imgcopy.k DGOES02/A-IR A/A.7014 SIZE=SAME STYPE=VISR DAY=1978-02-20 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7109700
+Transferring AREA data outbound, bytes= 7109860
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7014
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7014
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_20_051/dgoes02.1978.051.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_20_051/dgoes02.1978.051.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-20 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2        20 FEB 78051  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7015
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7015 SIZE=SAME STYPE=VISR DAY=1978-02-20 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219781056
+Transferring AREA data outbound, bytes= 219781216
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7015
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7015
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_20_051/dgoes02.1978.051.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_20_051/dgoes02.1978.051.233000.avi.gif
+==============================================================================
+Day: 1978-02-21
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-21 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     21 FEB 78052  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7016
+    CMD: imgcopy.k DGOES02/A-IR A/A.7016 SIZE=SAME STYPE=VISR DAY=1978-02-21 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7105744
+Transferring AREA data outbound, bytes= 7105904
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7016
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7016
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_21_052/dgoes02.1978.052.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_21_052/dgoes02.1978.052.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-21 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2        21 FEB 78052  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7017
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7017 SIZE=SAME STYPE=VISR DAY=1978-02-21 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219658752
+Transferring AREA data outbound, bytes= 219658912
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7017
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7017
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_21_052/dgoes02.1978.052.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_21_052/dgoes02.1978.052.233000.avi.gif
+==============================================================================
+Day: 1978-02-22
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-22 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  43  GOES-2 IR     22 FEB 78053  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7018
+    CMD: imgcopy.k DGOES02/A-IR A/A.7018 SIZE=SAME STYPE=VISR DAY=1978-02-22 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7105744
+Transferring AREA data outbound, bytes= 7105904
+IMGCOPY: DGOES02/A-IR.43 copied to A/A.7018
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7018
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_22_053/dgoes02.1978.053.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_22_053/dgoes02.1978.053.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-22 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  43  GOES-2        22 FEB 78053  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7019
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7019 SIZE=SAME STYPE=VISR DAY=1978-02-22 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219658752
+Transferring AREA data outbound, bytes= 219658912
+IMGCOPY: DGOES02/A-VIS.43 copied to A/A.7019
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7019
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_22_053/dgoes02.1978.053.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_22_053/dgoes02.1978.053.233000.avi.gif
+==============================================================================
+Day: 1978-02-23
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-23 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   7  GOES-2 IR     23 FEB 78054  04:00:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 04:00:00 -> slot 7020
+    CMD: imgcopy.k DGOES02/A-IR A/A.7020 SIZE=SAME STYPE=VISR DAY=1978-02-23 TIME=04:00 04:00
+Beginning Image Data transfer, bytes= 7172996
+Transferring AREA data outbound, bytes= 7173156
+IMGCOPY: DGOES02/A-IR.7 copied to A/A.7020
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7020
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_23_054/dgoes02.1978.054.040000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_23_054/dgoes02.1978.054.040000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-23 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+   7  GOES-2        23 FEB 78054  04:00:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 04:00:00 -> slot 7021
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7021 SIZE=SAME STYPE=VISR DAY=1978-02-23 TIME=04:00 04:00
+Beginning Image Data transfer, bytes= 221737920
+Transferring AREA data outbound, bytes= 221738080
+IMGCOPY: DGOES02/A-VIS.7 copied to A/A.7021
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7021
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_23_054/dgoes02.1978.054.040000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_23_054/dgoes02.1978.054.040000.avi.gif
+==============================================================================
+Day: 1978-02-24
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-24 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  35  GOES-2 IR     24 FEB 78055  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7022
+    CMD: imgcopy.k DGOES02/A-IR A/A.7022 SIZE=SAME STYPE=VISR DAY=1978-02-24 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7101788
+Transferring AREA data outbound, bytes= 7101948
+IMGCOPY: DGOES02/A-IR.35 copied to A/A.7022
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7022
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_24_055/dgoes02.1978.055.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_24_055/dgoes02.1978.055.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-24 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  35  GOES-2        24 FEB 78055  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7023
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7023 SIZE=SAME STYPE=VISR DAY=1978-02-24 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219536448
+Transferring AREA data outbound, bytes= 219536608
+IMGCOPY: DGOES02/A-VIS.35 copied to A/A.7023
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7023
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_24_055/dgoes02.1978.055.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_24_055/dgoes02.1978.055.233000.avi.gif
+==============================================================================
+Day: 1978-02-25
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-25 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     25 FEB 78056  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7024
+    CMD: imgcopy.k DGOES02/A-IR A/A.7024 SIZE=SAME STYPE=VISR DAY=1978-02-25 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7097832
+Transferring AREA data outbound, bytes= 7097992
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7024
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7024
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_25_056/dgoes02.1978.056.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_25_056/dgoes02.1978.056.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-25 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2        25 FEB 78056  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7025
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7025 SIZE=SAME STYPE=VISR DAY=1978-02-25 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219414144
+Transferring AREA data outbound, bytes= 219414304
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7025
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7025
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_25_056/dgoes02.1978.056.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_25_056/dgoes02.1978.056.233000.avi.gif
+==============================================================================
+Day: 1978-02-26
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-26 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2 IR     26 FEB 78057  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7026
+    CMD: imgcopy.k DGOES02/A-IR A/A.7026 SIZE=SAME STYPE=VISR DAY=1978-02-26 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7097832
+Transferring AREA data outbound, bytes= 7097992
+IMGCOPY: DGOES02/A-IR.46 copied to A/A.7026
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7026
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_26_057/dgoes02.1978.057.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_26_057/dgoes02.1978.057.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-26 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2        26 FEB 78057  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7027
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7027 SIZE=SAME STYPE=VISR DAY=1978-02-26 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219414144
+Transferring AREA data outbound, bytes= 219414304
+IMGCOPY: DGOES02/A-VIS.46 copied to A/A.7027
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7027
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_26_057/dgoes02.1978.057.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_26_057/dgoes02.1978.057.233000.avi.gif
+==============================================================================
+Day: 1978-02-27
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-27 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR     27 FEB 78058  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7028
+    CMD: imgcopy.k DGOES02/A-IR A/A.7028 SIZE=SAME STYPE=VISR DAY=1978-02-27 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7101788
+Transferring AREA data outbound, bytes= 7101948
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7028
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7028
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_27_058/dgoes02.1978.058.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_27_058/dgoes02.1978.058.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-27 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2        27 FEB 78058  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7029
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7029 SIZE=SAME STYPE=VISR DAY=1978-02-27 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219536448
+Transferring AREA data outbound, bytes= 219536608
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7029
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7029
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_27_058/dgoes02.1978.058.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_27_058/dgoes02.1978.058.233000.avi.gif
+==============================================================================
+Day: 1978-02-28
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-02-28 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  31  GOES-2 IR     28 FEB 78059  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7030
+    CMD: imgcopy.k DGOES02/A-IR A/A.7030 SIZE=SAME STYPE=VISR DAY=1978-02-28 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7101788
+Transferring AREA data outbound, bytes= 7101948
+IMGCOPY: DGOES02/A-IR.31 copied to A/A.7030
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7030
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_28_059/dgoes02.1978.059.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_02_28_059/dgoes02.1978.059.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-02-28 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  31  GOES-2        28 FEB 78059  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7031
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7031 SIZE=SAME STYPE=VISR DAY=1978-02-28 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219536448
+Transferring AREA data outbound, bytes= 219536608
+IMGCOPY: DGOES02/A-VIS.31 copied to A/A.7031
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7031
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_28_059/dgoes02.1978.059.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_02_28_059/dgoes02.1978.059.233000.avi.gif
+==============================================================================
+Day: 1978-03-01
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR      1 MAR 78060  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7032
+    CMD: imgcopy.k DGOES02/A-IR A/A.7032 SIZE=SAME STYPE=VISR DAY=1978-03-01 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7078052
+Transferring AREA data outbound, bytes= 7078212
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7032
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7032
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_01_060/dgoes02.1978.060.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_01_060/dgoes02.1978.060.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-01 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2         1 MAR 78060  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7033
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7033 SIZE=SAME STYPE=VISR DAY=1978-03-01 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 218802624
+Transferring AREA data outbound, bytes= 218802784
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7033
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7033
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_01_060/dgoes02.1978.060.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_01_060/dgoes02.1978.060.233000.avi.gif
+==============================================================================
+Day: 1978-03-02
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2 IR      2 MAR 78061  23:30:00    10   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7034
+    CMD: imgcopy.k DGOES02/A-IR A/A.7034 SIZE=SAME STYPE=VISR DAY=1978-03-02 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 5626200
+Transferring AREA data outbound, bytes= 5626360
+IMGCOPY: DGOES02/A-IR.46 copied to A/A.7034
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7034
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_02_061/dgoes02.1978.061.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_02_061/dgoes02.1978.061.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-02 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  46  GOES-2         2 MAR 78061  23:30:00    10   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7035
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7035 SIZE=SAME STYPE=VISR DAY=1978-03-02 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 173917056
+Transferring AREA data outbound, bytes= 173917216
+IMGCOPY: DGOES02/A-VIS.46 copied to A/A.7035
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7035
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_02_061/dgoes02.1978.061.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_02_061/dgoes02.1978.061.233000.avi.gif
+==============================================================================
+Day: 1978-03-03
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  48  GOES-2 IR      3 MAR 78062  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7036
+    CMD: imgcopy.k DGOES02/A-IR A/A.7036 SIZE=SAME STYPE=VISR DAY=1978-03-03 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7082008
+Transferring AREA data outbound, bytes= 7082168
+IMGCOPY: DGOES02/A-IR.48 copied to A/A.7036
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7036
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_03_062/dgoes02.1978.062.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_03_062/dgoes02.1978.062.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-03 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  48  GOES-2         3 MAR 78062  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7037
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7037 SIZE=SAME STYPE=VISR DAY=1978-03-03 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 218924928
+Transferring AREA data outbound, bytes= 218925088
+IMGCOPY: DGOES02/A-VIS.48 copied to A/A.7037
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7037
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_03_062/dgoes02.1978.062.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_03_062/dgoes02.1978.062.233000.avi.gif
+==============================================================================
+Day: 1978-03-04
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  45  GOES-2 IR      4 MAR 78063  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7038
+    CMD: imgcopy.k DGOES02/A-IR A/A.7038 SIZE=SAME STYPE=VISR DAY=1978-03-04 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7093876
+Transferring AREA data outbound, bytes= 7094036
+IMGCOPY: DGOES02/A-IR.45 copied to A/A.7038
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7038
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_04_063/dgoes02.1978.063.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_04_063/dgoes02.1978.063.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-04 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  45  GOES-2         4 MAR 78063  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7039
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7039 SIZE=SAME STYPE=VISR DAY=1978-03-04 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219291840
+Transferring AREA data outbound, bytes= 219292000
+IMGCOPY: DGOES02/A-VIS.45 copied to A/A.7039
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7039
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_04_063/dgoes02.1978.063.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_04_063/dgoes02.1978.063.233000.avi.gif
+==============================================================================
+Day: 1978-03-05
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2 IR      5 MAR 78064  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7040
+    CMD: imgcopy.k DGOES02/A-IR A/A.7040 SIZE=SAME STYPE=VISR DAY=1978-03-05 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7085964
+Transferring AREA data outbound, bytes= 7086124
+IMGCOPY: DGOES02/A-IR.32 copied to A/A.7040
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7040
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_05_064/dgoes02.1978.064.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_05_064/dgoes02.1978.064.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-05 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  32  GOES-2         5 MAR 78064  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7041
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7041 SIZE=SAME STYPE=VISR DAY=1978-03-05 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 219047232
+Transferring AREA data outbound, bytes= 219047392
+IMGCOPY: DGOES02/A-VIS.32 copied to A/A.7041
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7041
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_05_064/dgoes02.1978.064.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_05_064/dgoes02.1978.064.233000.avi.gif
+==============================================================================
+Day: 1978-03-06
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  40  GOES-2 IR      6 MAR 78065  21:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 21:30:00 -> slot 7042
+    CMD: imgcopy.k DGOES02/A-IR A/A.7042 SIZE=SAME STYPE=VISR DAY=1978-03-06 TIME=21:30 21:30
+Beginning Image Data transfer, bytes= 6998932
+Transferring AREA data outbound, bytes= 6999092
+IMGCOPY: DGOES02/A-IR.40 copied to A/A.7042
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7042
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_06_065/dgoes02.1978.065.213000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_06_065/dgoes02.1978.065.213000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-06 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  40  GOES-2         6 MAR 78065  21:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 21:30:00 -> slot 7043
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7043 SIZE=SAME STYPE=VISR DAY=1978-03-06 TIME=21:30 21:30
+Beginning Image Data transfer, bytes= 216356544
+Transferring AREA data outbound, bytes= 216356704
+IMGCOPY: DGOES02/A-VIS.40 copied to A/A.7043
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7043
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_06_065/dgoes02.1978.065.213000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_06_065/dgoes02.1978.065.213000.avi.gif
+==============================================================================
+Day: 1978-03-07
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-03-07
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-07 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-03-07
+==============================================================================
+Day: 1978-03-08
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-IR on 1978-03-08
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-08 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+imglist.k: No images satisfy selection criteria
+imglist.k: done
+  No images for A-VI on 1978-03-08
+==============================================================================
+Day: 1978-03-09
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  14  GOES-2 IR      9 MAR 78068  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7044
+    CMD: imgcopy.k DGOES02/A-IR A/A.7044 SIZE=SAME STYPE=VISR DAY=1978-03-09 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7078052
+Transferring AREA data outbound, bytes= 7078212
+IMGCOPY: DGOES02/A-IR.14 copied to A/A.7044
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7044
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_09_068/dgoes02.1978.068.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_09_068/dgoes02.1978.068.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-09 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  14  GOES-2         9 MAR 78068  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7045
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7045 SIZE=SAME STYPE=VISR DAY=1978-03-09 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 218802624
+Transferring AREA data outbound, bytes= 218802784
+IMGCOPY: DGOES02/A-VIS.14 copied to A/A.7045
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7045
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_09_068/dgoes02.1978.068.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_09_068/dgoes02.1978.068.233000.avi.gif
+==============================================================================
+Day: 1978-03-10
+  Product: A-IR
+    CMD: imglist.k DGOES02/A-IR DAY=1978-03-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-IR
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  26  GOES-2 IR     10 MAR 78069  23:30:00    -1   75 8
+imglist.k: done
+  Found 1 candidate times
+    Pull A-IR 23:30:00 -> slot 7046
+    CMD: imgcopy.k DGOES02/A-IR A/A.7046 SIZE=SAME STYPE=VISR DAY=1978-03-10 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 7066184
+Transferring AREA data outbound, bytes= 7066344
+IMGCOPY: DGOES02/A-IR.26 copied to A/A.7046
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7046
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_10_069/dgoes02.1978.069.233000.air.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+MAP: Completed frame 1
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_IR/1978/1978_03_10_069/dgoes02.1978.069.233000.air.gif
+  Product: A-VI (source: A-VIS)
+    CMD: imglist.k DGOES02/A-VIS DAY=1978-03-10 POS=ALL ALL=YES
+Image file directory listing for:DGOES02/A-VIS
+ Pos Satellite/         Date       Time      Center   Band(s)
+     sensor                                 Lat  Lon
+ --- -------------  ------------  --------  ---- ---- ------------
+  26  GOES-2        10 MAR 78069  23:30:00    -1   75 1
+imglist.k: done
+  Found 1 candidate times
+    Pull A-VI 23:30:00 -> slot 7047
+    CMD: imgcopy.k DGOES02/A-VIS A/A.7047 SIZE=SAME STYPE=VISR DAY=1978-03-10 TIME=23:30 23:30
+Beginning Image Data transfer, bytes= 218435712
+Transferring AREA data outbound, bytes= 218435872
+IMGCOPY: DGOES02/A-VIS.26 copied to A/A.7047
+imgcopy.k: done
+    MCENV command: mcenv -f 700x700
+    MCENV script:
+       imgdisp.k A/A.7047
+       map.k
+       map.k LALO
+       frmsave.k 1 /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_10_069/dgoes02.1978.069.233000.avi.gif
+       exit
+Beginning Image Data transfer, bytes= 490928
+IMGDISP: loaded frame  1
+imgdisp.k: done
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+map.k: Unable to find a NAV start point in image.
+MAP: Completed frame 1
+Frame saved as GIF in /data/sgunshor/corruptgoes/runs/run_20260401_193249/website/media/A_VI/1978/1978_03_10_069/dgoes02.1978.069.233000.avi.gif
+==============================================================================
+Frames harvested: 48
+Failures: 0
+Website root: /data/sgunshor/corruptgoes/runs/run_20260401_193249/website

@@ -17,3 +17,11 @@ dist/
 *.pyd
 *.so    
 *.c
+*.pyi
+.venv/
+__pycache__/*
+1px*
+debug*
+images/*
+*frames*
+trainingdata/*
